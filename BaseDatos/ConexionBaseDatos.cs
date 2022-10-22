@@ -10,9 +10,14 @@ namespace BaseDatos
 
         /* NOTA MUCHO MUY IMPORTANTE. Crear BaseDatos Productos con Tabla Producto en el SQL Server */
 
+        public SqlCommand cmd = new SqlCommand();
+
+        public SqlDataReader LeerFilas;
+
         protected SqlConnection ConnectionSql { get; set; }
 
         protected string ConnectionString = "Data Source=JUANCHINOTE\\SQLEXPRESS;Initial Catalog=Productos;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
+
 
         public ConexionBaseDatos()
         {
