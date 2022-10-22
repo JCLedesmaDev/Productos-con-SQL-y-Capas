@@ -77,10 +77,10 @@ GO
 CREATE PROC AgregarProducto
 @idcategoria INT,
 @idmarca INT,
-@descrip NVARCHAR (100),
-@prec FLOAT
+@descripcion NVARCHAR (100),
+@precio FLOAT
 AS
-INSERT INTO TablaProductos values (@idcategoria,@idmarca,@descrip,@prec)
+INSERT INTO TablaProductos values (@idcategoria, @idmarca, @descripcion, @precio)
 GO
 
 -----LISTAR PRODUCTOS
@@ -96,8 +96,8 @@ GO
 
 
 
-exec ListarMarcas
-
+exec AgregarProducto 2, 2, 'LALALA', 12.50
+select * from TablaProductos
 
 
 
