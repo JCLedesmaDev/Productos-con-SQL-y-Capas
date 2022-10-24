@@ -83,7 +83,7 @@ AS
 INSERT INTO TablaProductos values (@idCategoria, @idMarca, @descripcion, @precio)
 GO
 
------LISTAR PRODUCTOS
+----- LISTAR PRODUCTOS
 CREATE PROC ListarProductos
 AS
 SELECT 
@@ -99,6 +99,23 @@ INNER JOIN
 	TablaMarcas ON TablaProductos.IdMarca = TablaMarcas.Id
 GO
 
+
+---- Editar PRODUCTO
+CREATE PROC EditarProducto
+@id INT,
+@idCategoria INT,
+@idMarca INT,
+@descripcion NVARCHAR (100),
+@precio FLOAT
+AS
+UPDATE TablaProductos SET 
+Id=@id, 
+Descripcion=@descripcion, 
+Precio=@precio,
+IdCategoria=@idCategoria,
+IdMarca=@idMarca,
+Precio=@precio
+GO
 
 
 exec AgregarProducto 2, 2, 'LALALA', 12.50

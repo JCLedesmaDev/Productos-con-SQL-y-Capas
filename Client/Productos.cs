@@ -96,7 +96,6 @@ namespace Client
                     _Precio = Convert.ToDouble(txtPrecio.Text)
                 };
 
-                /// TODO: Pasar como parametro un obje de entidad producto
                 objproducto.EditarProductos(producto);
                 Operacion = "Insertar";
                 MessageBox.Show("Se edito correctamente");
@@ -118,7 +117,9 @@ namespace Client
                 idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
             }
             else
+            {
                 MessageBox.Show("debe seleccionar una fila");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -120,12 +120,31 @@ namespace BaseDatos.Instrucciones
 
         public void EditarProductos(Producto producto)
         {
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "update PRODUCTOS set IDCATEGORIA=" + idCategoria + ",IDMARCA=" + idMarca + ",DESCRIPCION='" + descripcion + "',PRECIO=" + precio + " WHERE IDPROD=" + idprod;
-            Comando.CommandType = CommandType.Text;
-            Comando.ExecuteNonQuery();
-            Conexion.CerrarConexion();
+            try
+            {
+                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
+                this.cmd.CommandText = "EditarProducto"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
+
+                this.cmd.Parameters.AddWithValue("@id", producto._Idprod);
+                this.cmd.Parameters.AddWithValue("@idCategoria", producto._IdCategoria);
+                this.cmd.Parameters.AddWithValue("@idMarca", producto._IdMarca);
+                this.cmd.Parameters.AddWithValue("@descripcion", producto._Descripcion);
+                this.cmd.Parameters.AddWithValue("@precio", producto._Precio);
+
+                this.cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrio un error a la hora de editar un producto.", e);
+            }
+            finally
+            {
+                this.cmd.Parameters.Clear();
+                this.CloseConnection(); // Cerramos la conexion a la BD
+            }
         }
+
         public void EliminarProducto()
         {
             Comando.Connection = Conexion.AbrirConexion();
