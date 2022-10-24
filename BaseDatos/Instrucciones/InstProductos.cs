@@ -145,13 +145,27 @@ namespace BaseDatos.Instrucciones
             }
         }
 
-        public void EliminarProducto()
+        public void EliminarProducto(int idProd)
         {
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "delete PRODUCTOS where IDPROD=" + idprod;
-            Comando.CommandType = CommandType.Text;
-            Comando.ExecuteNonQuery();
-            Conexion.CerrarConexion();
+            try
+            {
+                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
+                this.cmd.CommandText = "EliminarProducto"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
+
+                this.cmd.Parameters.AddWithValue("@idProducto", idProd);
+
+                this.cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrio un error a la hora de obtener el listado.", e);
+            }
+            finally
+            {
+                this.cmd.Parameters.Clear();
+                this.CloseConnection(); // Cerramos la conexion a la BD
+            }
         }
 
 
@@ -159,14 +173,27 @@ namespace BaseDatos.Instrucciones
         public DataTable tablaproductos()
         {
             DataTable Tabla = new DataTable();
-            Comando.Connection = Conexion.AbrirConexion();
-            Comando.CommandText = "select *from PRODUCTOS";
-            Comando.CommandType = CommandType.Text;
-            LeerFilas = Comando.ExecuteReader();
-            Tabla.Load(LeerFilas);
-            LeerFilas.Close();
-            Conexion.CerrarConexion();
-            return Tabla;
+
+            try
+            {
+                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
+                this.cmd.CommandText = "select * from TablaProductos";
+                this.cmd.CommandType = CommandType.Text; 
+                this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
+
+                Tabla.Load(this.LeerFilas); // Cargamos la tabla con los datos obtenidos
+
+                return Tabla;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrio un error a la hora de obtener el listado.", e);
+            }
+            finally
+            {
+                this.LeerFilas.Close(); // Cerramos la lectura de datos
+                this.CloseConnection(); // Cerramos la conexion a la BD
+            }
         }
         #endregion
     }

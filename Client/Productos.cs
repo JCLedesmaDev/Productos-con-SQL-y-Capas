@@ -100,7 +100,8 @@ namespace Client
                 Operacion = "Insertar";
                 MessageBox.Show("Se edito correctamente");
             }
-            ListarProductos();
+            
+             ListarProductos();
             //Limpiar texboxs
             LimpiarFormulario();
         }
@@ -110,6 +111,7 @@ namespace Client
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 Operacion = "Editar";
+
                 CmbCategoria.Text = dataGridView1.CurrentRow.Cells["CATEGORIA"].Value.ToString();
                 CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
@@ -126,8 +128,10 @@ namespace Client
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                objproducto._Idprod = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                objproducto.EliminarProducto();
+                int _IdProd = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                
+                objproducto.EliminarProducto(_IdProd);
+
                 MessageBox.Show("Se elimino satisfactoriamente");
                 ListarProductos();
             }
@@ -135,38 +139,7 @@ namespace Client
                 MessageBox.Show("Seleccione una fila");
         }
 
-        private void btnEditarf2_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                MantenimientoProd frm = new MantenimientoProd();
-                frm.Operacion = "Editar";
-                frm.ListarCategorias();
-                frm.ListarMarcas();
-
-                frm.idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
-                frm.CmbCategoria.Text = dataGridView1.CurrentRow.Cells["CATEGORIA"].Value.ToString();
-                frm.CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                frm.txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
-                frm.txtPrecio.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-
-                frm.ShowDialog();
-                ListarProductos();
-            }
-            else
-                MessageBox.Show("debe seleccionar una fila");
-        }
-
-        private void btnnuevo_Click(object sender, EventArgs e)
-        {
-            MantenimientoProd frm = new MantenimientoProd();
-            frm.Operacion = "Insertar";
-            frm.ListarCategorias();
-            frm.ListarMarcas();
-            frm.ShowDialog();
-            ListarProductos();
-        }
-
+  
         //METODOS VISTA DE LA BASE DE DATOS
         #region ocultar_mostrar_TablasBD
         private void btnVistaBD_Click(object sender, EventArgs e)
