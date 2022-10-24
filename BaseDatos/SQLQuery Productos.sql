@@ -75,18 +75,23 @@ GO
 
 -----AGREGAR PRODUCTO
 CREATE PROC AgregarProducto
-@idcategoria INT,
-@idmarca INT,
+@idCategoria INT,
+@idMarca INT,
 @descripcion NVARCHAR (100),
 @precio FLOAT
 AS
-INSERT INTO TablaProductos values (@idcategoria, @idmarca, @descripcion, @precio)
+INSERT INTO TablaProductos values (@idCategoria, @idMarca, @descripcion, @precio)
 GO
 
 -----LISTAR PRODUCTOS
 CREATE PROC ListarProductos
 AS
-SELECT Id, Descripcion, Precio, TablaCategorias.Descripcion, TablaMarcas.Descripcion 
+SELECT 
+	TablaProductos.Id, 
+	TablaProductos.Descripcion, 
+	TablaProductos.Precio, 
+	TablaCategorias.Descripcion, 
+	TablaMarcas.Descripcion 
 FROM TablaProductos 
 INNER JOIN 
 	TablaCategorias ON TablaProductos.IdCategoria = TablaCategorias.Id

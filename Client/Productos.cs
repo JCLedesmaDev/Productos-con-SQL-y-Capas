@@ -1,4 +1,5 @@
 ﻿using BaseDatos.Instrucciones;
+using Entidades.Data.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace Client
         {
             InitializeComponent();
         }
-        //https://www.youtube.com/watch?v=wMgfmNdxNsw&t=1384s min 18
+        // https://www.youtube.com/watch?v=Z6D02LVQX5M&list=RDCMUCEQlGiXhpdO4Qhn0sPviagg&index=2&ab_channel=RJCodeAdvance min 0
         //https://rjcodeadvance.com/crud-insertar-y-mostrar-datos-con-tablas-relacionadas-sql-c-poo-y-capas-nivel-base/
         //https://github.com/RJCodeAdvance/CRUD-CON-TABLAS-RELACIONADAS-PARTE-2-Completo-C-Sharp-SQL/blob/master/TABLAS_RELACIONADAS/CAPAPRESENTACION/PRODUCTOS.cs
 
@@ -33,6 +34,7 @@ namespace Client
             ListarMarcas();
             ListarProductos();
         }
+
         private void ListarCategorias()
         {
             InstProductos objProd = new InstProductos();
@@ -40,6 +42,7 @@ namespace Client
             CmbCategoria.DisplayMember = "Descripcion";
             CmbCategoria.ValueMember = "Id";
         }
+        
         private void ListarMarcas()
         {
             InstProductos objProd = new InstProductos();
@@ -47,6 +50,7 @@ namespace Client
             CmbMarca.DisplayMember = "Descripcion";
             CmbMarca.ValueMember = "Id";
         }
+        
         private void ListarProductos()
         { /*IGNORAR ESTA LINEA ->*/
             VistaBaseDatos();/*<- IGNORAR ESTA LINEA*/
@@ -55,6 +59,7 @@ namespace Client
             dataGridView1.DataSource = objprod.ListarProductos();
         }
 
+
         private void LimpiarFormulario()
         {
             txtDescripcion.Clear();
@@ -62,25 +67,37 @@ namespace Client
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Producto producto = new Producto();
+            
             if (Operacion == "Insertar")
             {
-                objproducto._IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue);
-                objproducto._IdMarca = Convert.ToInt32(CmbMarca.SelectedValue);
-                objproducto._Descripcion = txtDescripcion.Text;
-                objproducto._Precio = Convert.ToDouble(txtPrecio.Text);
-                objproducto.InsertarProductos();
+                producto = new Producto
+                {
+                    _IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue),
+                    _IdMarca = Convert.ToInt32(CmbMarca.SelectedValue),
+                    _Descripcion = txtDescripcion.Text,
+                    _Precio = Convert.ToDouble(txtPrecio.Text)
+                };
+                
+                objproducto.InsertarProductos(producto);
 
                 MessageBox.Show("Se inserto correctamente");
             }
-            else if (Operacion == "Editar")
+            
+            if (Operacion == "Editar")
             {
-                objproducto._IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue);
-                objproducto._IdMarca = Convert.ToInt32(CmbMarca.SelectedValue);
-                objproducto._Descripcion = txtDescripcion.Text;
-                objproducto._Precio = Convert.ToDouble(txtPrecio.Text);
-                objproducto._Idprod = Convert.ToInt32(idprod);
 
-                objproducto.EditarProductos();
+                producto = new Producto
+                {
+                    _Idprod = Convert.ToInt32(idprod),
+                    _IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue),
+                    _IdMarca = Convert.ToInt32(CmbMarca.SelectedValue),
+                    _Descripcion = txtDescripcion.Text,
+                    _Precio = Convert.ToDouble(txtPrecio.Text)
+                };
+
+                /// TODO: Pasar como parametro un obje de entidad producto
+                objproducto.EditarProductos(producto);
                 Operacion = "Insertar";
                 MessageBox.Show("Se edito correctamente");
             }
