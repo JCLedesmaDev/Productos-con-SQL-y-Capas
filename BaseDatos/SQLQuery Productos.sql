@@ -7,33 +7,33 @@ USE Productos
 
 CREATE TABLE TablaCategorias (
 	Id INT IDENTITY (1,1) PRIMARY KEY,
-	Descripcion NVARCHAR (100)
+	Descripcion VARCHAR (100) not null
 )
 GO
 
 CREATE TABLE TablaMarcas (
 	Id INT IDENTITY (1,1) PRIMARY KEY,
-	Descripcion NVARCHAR (100)
+	Descripcion VARCHAR (100) not null
 )
 GO
 
 CREATE TABLE TablaProductos (
 	Id INT IDENTITY (1,1) PRIMARY KEY,
-	IdCategoria INT,
-	IdMarca INT, 
-	Descripcion NVARCHAR(100),
-	Precio FLOAT
+	IdCategoria INT not null,
+	IdMarca INT not null, 
+	Descripcion VARCHAR(100) not null,
+	Precio FLOAT not null
 
-	-- Relaciones con las otras tablas
-	-- Propiedad de navegacion / Propiedad de Referencia / Nombre de la Tabla a la que apunta / Clave primaria de dicha Tabla.
+	--- RESTRICCIONES
 	CONSTRAINT Categoria FOREIGN KEY (IdCategoria) REFERENCES TablaCategorias (Id),
-	CONSTRAINT Marca FOREIGN KEY (IdMarca) REFERENCES TablaMarcas (Id)
+	CONSTRAINT Marca FOREIGN KEY (IdMarca) REFERENCES TablaMarcas(Id)
 )
 GO
 
 ----------------------------------- Mockeos de DATOS de cada Tabla -------------------------------
 
 INSERT INTO TablaCategorias VALUES 
+(''),
 ('Laptop'),
 ('Desktop'),
 ('Impresora'),
@@ -44,6 +44,7 @@ INSERT INTO TablaCategorias VALUES
 GO
 
 INSERT INTO TablaMarcas VALUES 
+(''),
 ('HP'),
 ('LG'),
 ('Samsung'),
@@ -72,18 +73,7 @@ AS
 SELECT * FROM TablaMarcas ORDER BY Descripcion ASC
 GO
 
-
------AGREGAR PRODUCTO
-CREATE PROC AgregarProducto
-@idCategoria INT,
-@idMarca INT,
-@descripcion NVARCHAR (100),
-@precio FLOAT
-AS
-INSERT INTO TablaProductos values (@idCategoria, @idMarca, @descripcion, @precio)
-GO
-
------LISTAR PRODUCTOS
+----- LISTAR PRODUCTOS
 CREATE PROC ListarProductos
 AS
 SELECT 
@@ -99,49 +89,40 @@ INNER JOIN
 	TablaMarcas ON TablaProductos.IdMarca = TablaMarcas.Id
 GO
 
+-----AGREGAR PRODUCTO
+CREATE PROC AgregarProducto
+@idCategoria INT,
+@idMarca INT,
+@descripcion NVARCHAR (100),
+@precio FLOAT
+AS
+INSERT INTO TablaProductos values (@idCategoria, @idMarca, @descripcion, @precio)
+GO
+
+---- Editar PRODUCTO
+CREATE PROC EditarProducto
+@id INT,
+@idCategoria INT,
+@idMarca INT,
+@descripcion NVARCHAR (100),
+@precio FLOAT
+AS
+UPDATE TablaProductos SET 
+Id=@id, 
+Descripcion=@descripcion, 
+Precio=@precio,
+IdCategoria=@idCategoria,
+IdMarca=@idMarca,
+Precio=@precio
+GO
 
 
-exec AgregarProducto 2, 2, 'LALALA', 12.50
-select * from TablaProductos
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+------- Eliminar PRODUCTO
+CREATE PROC EliminarProducto
+@idProducto INT
+AS 
+DELETE TablaProductos 
+WHERE TablaProductos.Id = @idProducto
 
 
 

@@ -16,7 +16,7 @@ namespace BaseDatos
 
         protected SqlConnection ConnectionSql { get; set; }
 
-        protected string ConnectionString = "Data Source=JUANCHINOTE\\SQLEXPRESS;Initial Catalog=Productos;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
+        protected string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Productos;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
 
 
         public ConexionBaseDatos()
@@ -57,6 +57,7 @@ namespace BaseDatos
                 throw new Exception("Error al tratar de cerrar la conexion", ex);
             }
         }
+ 
     }
 }
 

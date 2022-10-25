@@ -18,7 +18,7 @@ namespace Client
         {
             InitializeComponent();
         }
-        // https://www.youtube.com/watch?v=Z6D02LVQX5M&list=RDCMUCEQlGiXhpdO4Qhn0sPviagg&index=2&ab_channel=RJCodeAdvance min 0
+        // https://www.youtube.com/watch?v=Z6D02LVQX5M&list=RDCMUCEQlGiXhpdO4Qhn0sPviagg&index=2&ab_channel=RJCodeAdvance min 5.30
         //https://rjcodeadvance.com/crud-insertar-y-mostrar-datos-con-tablas-relacionadas-sql-c-poo-y-capas-nivel-base/
         //https://github.com/RJCodeAdvance/CRUD-CON-TABLAS-RELACIONADAS-PARTE-2-Completo-C-Sharp-SQL/blob/master/TABLAS_RELACIONADAS/CAPAPRESENTACION/PRODUCTOS.cs
 
@@ -96,12 +96,12 @@ namespace Client
                     _Precio = Convert.ToDouble(txtPrecio.Text)
                 };
 
-                /// TODO: Pasar como parametro un obje de entidad producto
                 objproducto.EditarProductos(producto);
                 Operacion = "Insertar";
                 MessageBox.Show("Se edito correctamente");
             }
-            ListarProductos();
+            
+             ListarProductos();
             //Limpiar texboxs
             LimpiarFormulario();
         }
@@ -111,6 +111,7 @@ namespace Client
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 Operacion = "Editar";
+
                 CmbCategoria.Text = dataGridView1.CurrentRow.Cells["CATEGORIA"].Value.ToString();
                 CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
@@ -118,15 +119,19 @@ namespace Client
                 idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
             }
             else
+            {
                 MessageBox.Show("debe seleccionar una fila");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                objproducto._Idprod = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                objproducto.EliminarProducto();
+                int _IdProd = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                
+                objproducto.EliminarProducto(_IdProd);
+
                 MessageBox.Show("Se elimino satisfactoriamente");
                 ListarProductos();
             }
@@ -134,40 +139,10 @@ namespace Client
                 MessageBox.Show("Seleccione una fila");
         }
 
-        private void btnEditarf2_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                MantenimientoProd frm = new MantenimientoProd();
-                frm.Operacion = "Editar";
-                frm.ListarCategorias();
-                frm.ListarMarcas();
-
-                frm.idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
-                frm.CmbCategoria.Text = dataGridView1.CurrentRow.Cells["CATEGORIA"].Value.ToString();
-                frm.CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                frm.txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
-                frm.txtPrecio.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-
-                frm.ShowDialog();
-                ListarProductos();
-            }
-            else
-                MessageBox.Show("debe seleccionar una fila");
-        }
-
-        private void btnnuevo_Click(object sender, EventArgs e)
-        {
-            MantenimientoProd frm = new MantenimientoProd();
-            frm.Operacion = "Insertar";
-            frm.ListarCategorias();
-            frm.ListarMarcas();
-            frm.ShowDialog();
-            ListarProductos();
-        }
-
+  
         //METODOS VISTA DE LA BASE DE DATOS
         #region ocultar_mostrar_TablasBD
+
         private void btnVistaBD_Click(object sender, EventArgs e)
         {
             if (this.Size.Height == 330)
