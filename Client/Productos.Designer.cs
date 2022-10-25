@@ -296,26 +296,6 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnEditarf2
-            // 
-            this.btnEditarf2.Location = new System.Drawing.Point(-204, 223);
-            this.btnEditarf2.Name = "btnEditarf2";
-            this.btnEditarf2.Size = new System.Drawing.Size(115, 23);
-            this.btnEditarf2.TabIndex = 19;
-            this.btnEditarf2.Text = "Editar Form 2";
-            this.btnEditarf2.UseVisualStyleBackColor = true;
-            this.btnEditarf2.Click += new System.EventHandler(this.btnEditarf2_Click);
-            // 
-            // btnnuevo
-            // 
-            this.btnnuevo.Location = new System.Drawing.Point(-83, 223);
-            this.btnnuevo.Name = "btnnuevo";
-            this.btnnuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnnuevo.TabIndex = 20;
-            this.btnnuevo.Text = "nuevo";
-            this.btnnuevo.UseVisualStyleBackColor = true;
-            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;

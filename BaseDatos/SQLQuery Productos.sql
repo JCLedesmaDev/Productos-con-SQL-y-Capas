@@ -6,34 +6,34 @@ USE Productos
 ----------------------------------- Creacion de TABLAS --------------------------------------
 
 CREATE TABLE TablaCategorias (
-	Id VARCHAR(3) PRIMARY KEY,
+	Id INT IDENTITY (1,1) PRIMARY KEY,
 	Descripcion VARCHAR (100) not null
 )
 GO
 
 CREATE TABLE TablaMarcas (
-	Id VARCHAR(3) PRIMARY KEY,
+	Id INT IDENTITY (1,1) PRIMARY KEY,
 	Descripcion VARCHAR (100) not null
 )
 GO
 
 CREATE TABLE TablaProductos (
-	Id VARCHAR(3) PRIMARY KEY,
-	IdCategoria VARCHAR(3) not null,
-	IdMarca VARCHAR(3) not null, 
+	Id INT IDENTITY (1,1) PRIMARY KEY,
+	IdCategoria INT not null,
+	IdMarca INT not null, 
 	Descripcion VARCHAR(100) not null,
-	Precio VARCHAR(3) not null
+	Precio FLOAT not null
 
-	-- Relaciones con las otras tablas
-	-- Propiedad de navegacion / Propiedad de Referencia / Nombre de la Tabla a la que apunta / Clave primaria de dicha Tabla.
+	--- RESTRICCIONES
 	CONSTRAINT Categoria FOREIGN KEY (IdCategoria) REFERENCES TablaCategorias (Id),
-	CONSTRAINT Marca FOREIGN KEY (IdMarca) REFERENCES TablaMarcas (Id)
+	CONSTRAINT Marca FOREIGN KEY (IdMarca) REFERENCES TablaMarcas(Id)
 )
 GO
 
 ----------------------------------- Mockeos de DATOS de cada Tabla -------------------------------
 
 INSERT INTO TablaCategorias VALUES 
+(''),
 ('Laptop'),
 ('Desktop'),
 ('Impresora'),
@@ -44,6 +44,7 @@ INSERT INTO TablaCategorias VALUES
 GO
 
 INSERT INTO TablaMarcas VALUES 
+(''),
 ('HP'),
 ('LG'),
 ('Samsung'),
@@ -122,44 +123,6 @@ CREATE PROC EliminarProducto
 AS 
 DELETE TablaProductos 
 WHERE TablaProductos.Id = @idProducto
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -142,6 +142,7 @@ namespace Client
   
         //METODOS VISTA DE LA BASE DE DATOS
         #region ocultar_mostrar_TablasBD
+
         private void btnVistaBD_Click(object sender, EventArgs e)
         {
             if (this.Size.Height == 330)
