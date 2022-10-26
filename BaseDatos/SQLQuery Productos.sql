@@ -34,9 +34,8 @@ CREATE TABLE TablaUsuarios (
 	Id INT IDENTITY (1,1) PRIMARY KEY,
 	Email VARCHAR(100) not null,
 	Password VARCHAR(100) not null,
-	PasswordHash VARCHAR(100) not null,
-	NombreCompleto VARCHAR(100) not null
-)
+	NombreCompleto VARCHAR(100) not null,
+	CreateDateUser DATETIME not null)
 GO
 ----------------------------------- Mockeos de DATOS de cada Tabla -------------------------------
 
@@ -64,6 +63,10 @@ INSERT INTO TablaMarcas VALUES
 ('Gygabyte'),
 ('Epson'),
 ('Nvidia')
+GO
+
+INSERT INTO TablaUsuarios VALUES
+('juanchi@gmail.com', '123', 'Juan Cruz' , GETDATE())
 GO
 
 
@@ -137,16 +140,18 @@ GO
 CREATE PROC SpRegistrarUsuario
 @email VARCHAR (100),
 @password VARCHAR (100),
-@passwordHash VARCHAR (100),
-@nombreCompleto VARCHAR (100)
+@nombreCompleto VARCHAR (100),
+@createDateUser DATETIME
 AS
-INSERT INTO TablaUsuarios values (@email, @password, @passwordHash, @nombreCompleto)
+INSERT INTO TablaUsuarios values (@email, @password, @nombreCompleto, @createDateUser)
 GO
 
 ------ INICIAR SESION
 CREATE PROC SpIniciarSesion
-@id INT
+@email VARCHAR (100),
+@password VARCHAR (100)
 AS
 SELECT TablaUsuarios.Email, TablaUsuarios.NombreCompleto FROM TablaUsuarios 
-WHERE TablaUsuarios.Id = @id
+WHERE 
+TablaUsuarios.Email = @email AND TablaUsuarios.Password = @password
 GO

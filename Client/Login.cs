@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades.Data.Entidades;
+using Server.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace Client
     public partial class Login : Form
     {
         Productos ProductosView;
+        UsuarioController usuarioController = new UsuarioController();
         public Login()
         {
             InitializeComponent();
@@ -20,15 +23,21 @@ namespace Client
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            //if ((txtusuario.Text != "") && (txtcontra.Text != ""))
-            //{
-            //if ((txtusuario.Text == "AdiminJYV") && (txtusuario.Text == "12345vanejuan"))
-            //{
-                    ProductosView = new Productos();
-                    ProductosView.ShowDialog();
-                    this.Hide();
-            //}
-            //}
+
+            Usuario usuarioLogin = new Usuario
+            {
+                _Email = "juanchi@gmail.com",
+                _Password = "123"
+            };
+
+            bool result = usuarioController.Login(usuarioLogin);
+
+            if (result)
+            {
+                ProductosView = new Productos();
+                ProductosView.ShowDialog();
+                this.Hide();
+            }
         }
     }
 }
