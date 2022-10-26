@@ -5,62 +5,10 @@ using Entidades.Data.Entidades;
 
 namespace BaseDatos.Instrucciones
 {
+
+    /// INSTRUCCIONES DE PRODUCTO
     public class InstProductos: ConexionBaseDatos
     {
-
-        public DataTable ListarCategorias()
-        {
-            DataTable Table = new DataTable();
-
-            try
-            {
-                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "SpListarCategorias"; /// Nombramos el procedimiento creado en el SqlServer
-                this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
-
-                this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
-
-                Table.Load(this.LeerFilas); // Cargamos la tabla con los datos obtenidos
-
-                return Table;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Ocurrio un error a la hora de obtener el listado.", e);
-            } 
-            finally
-            {
-                this.LeerFilas.Close(); // Cerramos la lectura de datos
-                this.CloseConnection(); // Cerramos la conexion a la BD
-            }
-        }
-
-        public DataTable ListarMarcas()
-        {
-            DataTable Table = new DataTable();
-
-            try
-            {
-                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "SpListarMarcas"; /// Nombramos el procedimiento creado en el SqlServer
-                this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
-
-                this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
-
-                Table.Load(this.LeerFilas); // Cargamos la tabla con los datos obtenidos
-
-                return Table;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Ocurrio un error a la hora de obtener el listado.", e);
-            }
-            finally
-            {
-                this.LeerFilas.Close(); // Cerramos la lectura de datos
-                this.CloseConnection(); // Cerramos la conexion a la BD
-            }
-        }
 
         public DataTable ListarProductos()
         {
@@ -90,7 +38,7 @@ namespace BaseDatos.Instrucciones
         }
 
 
-        public void InsertarProductos(Producto producto)
+        public string InsertarProducto(Producto producto)
         {
             try
             {
@@ -104,6 +52,8 @@ namespace BaseDatos.Instrucciones
                 this.cmd.Parameters.AddWithValue("@precio", producto._Precio);
 
                 this.cmd.ExecuteNonQuery();
+
+                return "Se inserto correctamente";
             }
             catch (Exception e)
             {
@@ -116,7 +66,7 @@ namespace BaseDatos.Instrucciones
             }
         }
 
-        public void EditarProductos(Producto producto)
+        public string EditarProducto(Producto producto)
         {
             try
             {
@@ -124,13 +74,15 @@ namespace BaseDatos.Instrucciones
                 this.cmd.CommandText = "SpEditarProducto"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
-                this.cmd.Parameters.AddWithValue("@id", producto._Idprod);
+                this.cmd.Parameters.AddWithValue("@id", producto._Id);
                 this.cmd.Parameters.AddWithValue("@idCategoria", producto._IdCategoria);
                 this.cmd.Parameters.AddWithValue("@idMarca", producto._IdMarca);
                 this.cmd.Parameters.AddWithValue("@descripcion", producto._Descripcion);
                 this.cmd.Parameters.AddWithValue("@precio", producto._Precio);
 
                 this.cmd.ExecuteNonQuery();
+
+                return "Se edito correctamente";
             }
             catch (Exception e)
             {
@@ -143,7 +95,7 @@ namespace BaseDatos.Instrucciones
             }
         }
 
-        public void EliminarProducto(int idProd)
+        public string EliminarProducto(int idProd)
         {
             try
             {
@@ -154,6 +106,8 @@ namespace BaseDatos.Instrucciones
                 this.cmd.Parameters.AddWithValue("@idProducto", idProd);
 
                 this.cmd.ExecuteNonQuery();
+
+                return "Se elimino correctamente";
             }
             catch (Exception e)
             {
@@ -167,8 +121,7 @@ namespace BaseDatos.Instrucciones
         }
 
 
-        #region regi
-        public DataTable tablaproductos()
+        public DataTable TablaProductos()
         {
             DataTable Tabla = new DataTable();
 
@@ -193,7 +146,6 @@ namespace BaseDatos.Instrucciones
                 this.CloseConnection(); // Cerramos la conexion a la BD
             }
         }
-        #endregion
     }
 
 }

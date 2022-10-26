@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBaseDatos.cs" />
+    <Compile Include="Instrucciones\InstCategoria.cs" />
+    <Compile Include="Instrucciones\InstMarca.cs" />
     <Compile Include="Instrucciones\InstProductos.cs" />
+    <Compile Include="Instrucciones\InstUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

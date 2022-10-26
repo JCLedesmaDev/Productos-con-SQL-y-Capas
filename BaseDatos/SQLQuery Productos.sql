@@ -111,7 +111,7 @@ UPDATE TablaProductos SET
 Descripcion = @descripcion, 
 Precio = @precio,
 IdCategoria = @idCategoria,
-IdMarca = @idMarco
+IdMarca = @idMarca
 WHERE TablaProductos.Id = @id
 GO
 

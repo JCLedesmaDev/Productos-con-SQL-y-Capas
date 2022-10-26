@@ -1,9 +1,6 @@
-﻿using BaseDatos.Instrucciones;
-using Entidades.Data.Entidades;
+﻿using Entidades.Data.Entidades;
+using Server.Controllers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -18,11 +15,10 @@ namespace Client
         {
             InitializeComponent();
         }
-        // https://www.youtube.com/watch?v=Z6D02LVQX5M&list=RDCMUCEQlGiXhpdO4Qhn0sPviagg&index=2&ab_channel=RJCodeAdvance min 5.30
-        //https://rjcodeadvance.com/crud-insertar-y-mostrar-datos-con-tablas-relacionadas-sql-c-poo-y-capas-nivel-base/
-        //https://github.com/RJCodeAdvance/CRUD-CON-TABLAS-RELACIONADAS-PARTE-2-Completo-C-Sharp-SQL/blob/master/TABLAS_RELACIONADAS/CAPAPRESENTACION/PRODUCTOS.cs
 
-        InstProductos objproducto  = new InstProductos();
+        ProductoController productoController = new ProductoController();
+        MarcaController marcaController = new MarcaController();
+        CategoriaController categoriaController = new CategoriaController();
 
         string Operacion = "Insertar";
         string idprod;
@@ -37,29 +33,27 @@ namespace Client
 
         private void ListarCategorias()
         {
-            InstProductos objProd = new InstProductos();
-            CmbCategoria.DataSource = objProd.ListarCategorias();
+            /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
+            CmbCategoria.DataSource = categoriaController.ObtenerListadoCategorias();
             CmbCategoria.DisplayMember = "Descripcion";
             CmbCategoria.ValueMember = "Id";
         }
         
         private void ListarMarcas()
         {
-            InstProductos objProd = new InstProductos();
-            CmbMarca.DataSource = objProd.ListarMarcas();
+            /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
+            CmbMarca.DataSource = marcaController.ObtenerListadoMarcas();
             CmbMarca.DisplayMember = "Descripcion";
             CmbMarca.ValueMember = "Id";
         }
         
         private void ListarProductos()
-        { /*IGNORAR ESTA LINEA ->*/
-            VistaBaseDatos();/*<- IGNORAR ESTA LINEA*/
+        {   /*IGNORAR ESTA LINEA ->*/
+                VistaBaseDatos();
+            /*<- IGNORAR ESTA LINEA*/
 
-            InstProductos objprod = new InstProductos();
-            dataGridView1.DataSource = objprod.ListarProductos();
-            /* 
-                Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos 
-            */
+            /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
+            dataGridView1.DataSource = productoController.ObtenerListadoProductos();
         }
 
 
@@ -68,6 +62,7 @@ namespace Client
             txtDescripcion.Clear();
             txtPrecio.Clear();
         }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Producto producto = new Producto();
@@ -81,10 +76,10 @@ namespace Client
                     _Descripcion = txtDescripcion.Text,
                     _Precio = Convert.ToDouble(txtPrecio.Text)
                 };
-                
-                objproducto.InsertarProductos(producto);
 
-                MessageBox.Show("Se inserto correctamente");
+                string result = productoController.InsertarProducto(producto);
+
+                MessageBox.Show(result);
             }
             
             if (Operacion == "Editar")
@@ -92,16 +87,17 @@ namespace Client
 
                 producto = new Producto
                 {
-                    _Idprod = Convert.ToInt32(idprod),
+                    _Id = Convert.ToInt32(idprod),
                     _IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue),
                     _IdMarca = Convert.ToInt32(CmbMarca.SelectedValue),
                     _Descripcion = txtDescripcion.Text,
                     _Precio = Convert.ToDouble(txtPrecio.Text)
                 };
 
-                objproducto.EditarProductos(producto);
+                string result = productoController.EditarProducto(producto);
                 Operacion = "Insertar";
-                MessageBox.Show("Se edito correctamente");
+
+                MessageBox.Show(result);
             }
             
              ListarProductos();
@@ -132,10 +128,11 @@ namespace Client
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int _IdProd = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                
-                objproducto.EliminarProducto(_IdProd);
 
-                MessageBox.Show("Se elimino satisfactoriamente");
+                string result = productoController.EliminarProducto(_IdProd);
+
+                MessageBox.Show(result);
+
                 ListarProductos();
             }
             else
@@ -156,10 +153,9 @@ namespace Client
         private void VistaBaseDatos()
         {
 
-            InstProductos obj = new InstProductos();
-            DGVProductos.DataSource = obj.tablaproductos();
-            DGVCategorias.DataSource = obj.ListarCategorias();
-            DGVMarcas.DataSource = obj.ListarMarcas();
+            DGVProductos.DataSource = productoController.ObtenerTablaProducto();
+            DGVCategorias.DataSource = categoriaController.ObtenerListadoCategorias();
+            DGVMarcas.DataSource = marcaController.ObtenerListadoMarcas();
         }
 
         #endregion ocultar_mostrar_TablasBD

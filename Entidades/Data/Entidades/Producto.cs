@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Data.Comun;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,21 +7,15 @@ using System.Threading.Tasks;
 
 namespace Entidades.Data.Entidades
 {
-    public class Producto
+    public class Producto: IdComun
     {
         //ATRIBUTOS
-        private int idprod;
         private int idCategoria;
         private int idMarca;
         private string descripcion;
         private double precio;
 
         //metodos get y set
-        public int _Idprod
-        {
-            get { return idprod; }
-            set { idprod = value; }
-        }
         public int _IdCategoria
         {
             get { return idCategoria; }
