@@ -18,11 +18,6 @@ namespace Client
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnlogin_Click(object sender, EventArgs e)
         {
             if ((txtusuario.Text != "") && (txtcontra.Text != ""))
