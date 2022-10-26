@@ -62,26 +62,26 @@ GO
 ----------------------------------- Procedimientos Almacenados ----------------------------------- 
 
 --- Listado Categorias 
-CREATE PROC ListarCategorias
+CREATE PROC SpListarCategorias
 AS
 SELECT * FROM TablaCategorias ORDER BY Descripcion ASC
 GO 
 
 --- Listado Categorias 
-CREATE PROC ListarMarcas
+CREATE PROC SpListarMarcas
 AS
 SELECT * FROM TablaMarcas ORDER BY Descripcion ASC
 GO
 
 ----- LISTAR PRODUCTOS
-CREATE PROC ListarProductos
+CREATE PROC SpListarProductos
 AS
 SELECT 
 	TablaProductos.Id, 
 	TablaProductos.Descripcion, 
 	TablaProductos.Precio, 
-	TablaCategorias.Descripcion, 
-	TablaMarcas.Descripcion 
+	TablaCategorias.Descripcion AS Categoria, 
+	TablaMarcas.Descripcion AS Marca 
 FROM TablaProductos 
 INNER JOIN 
 	TablaCategorias ON TablaProductos.IdCategoria = TablaCategorias.Id
@@ -90,7 +90,7 @@ INNER JOIN
 GO
 
 -----AGREGAR PRODUCTO
-CREATE PROC AgregarProducto
+CREATE PROC SpAgregarProducto
 @idCategoria INT,
 @idMarca INT,
 @descripcion NVARCHAR (100),
@@ -100,7 +100,7 @@ INSERT INTO TablaProductos values (@idCategoria, @idMarca, @descripcion, @precio
 GO
 
 ---- Editar PRODUCTO
-CREATE PROC EditarProducto
+CREATE PROC SpEditarProducto
 @id INT,
 @idCategoria INT,
 @idMarca INT,
@@ -108,21 +108,20 @@ CREATE PROC EditarProducto
 @precio FLOAT
 AS
 UPDATE TablaProductos SET 
-Id=@id, 
-Descripcion=@descripcion, 
-Precio=@precio,
-IdCategoria=@idCategoria,
-IdMarca=@idMarca,
-Precio=@precio
+Descripcion = @descripcion, 
+Precio = @precio,
+IdCategoria = @idCategoria,
+IdMarca = @idMarco
+WHERE TablaProductos.Id = @id
 GO
 
 
 ------- Eliminar PRODUCTO
-CREATE PROC EliminarProducto
+CREATE PROC SpEliminarProducto
 @idProducto INT
 AS 
 DELETE TablaProductos 
 WHERE TablaProductos.Id = @idProducto
-
+GO
 
 

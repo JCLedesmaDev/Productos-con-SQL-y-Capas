@@ -57,6 +57,9 @@ namespace Client
 
             InstProductos objprod = new InstProductos();
             dataGridView1.DataSource = objprod.ListarProductos();
+            /* 
+                Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos 
+            */
         }
 
 
@@ -112,11 +115,11 @@ namespace Client
             {
                 Operacion = "Editar";
 
-                CmbCategoria.Text = dataGridView1.CurrentRow.Cells["CATEGORIA"].Value.ToString();
-                CmbMarca.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                txtDescripcion.Text = dataGridView1.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
-                txtPrecio.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                idprod = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
+                CmbCategoria.Text = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
+                CmbMarca.Text = dataGridView1.CurrentRow.Cells["Marca"].Value.ToString();
+                txtDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+                txtPrecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
+                idprod = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
             }
             else
             {
@@ -160,6 +163,5 @@ namespace Client
         }
 
         #endregion ocultar_mostrar_TablasBD
-
     }
 }

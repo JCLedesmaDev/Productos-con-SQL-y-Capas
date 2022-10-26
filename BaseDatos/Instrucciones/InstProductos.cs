@@ -15,7 +15,7 @@ namespace BaseDatos.Instrucciones
             try
             {
                 this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "ListarCategorias"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandText = "SpListarCategorias"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
                 this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
@@ -42,7 +42,7 @@ namespace BaseDatos.Instrucciones
             try
             {
                 this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "ListarMarcas"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandText = "SpListarMarcas"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
                 this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
@@ -69,7 +69,7 @@ namespace BaseDatos.Instrucciones
             try
             {
                 this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "ListarProductos"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandText = "SpListarProductos"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
                 this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
@@ -95,7 +95,7 @@ namespace BaseDatos.Instrucciones
             try
             {
                 this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "AgregarProducto"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandText = "SpAgregarProducto"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
                 this.cmd.Parameters.AddWithValue("@idCategoria", producto._IdCategoria);
@@ -116,14 +116,12 @@ namespace BaseDatos.Instrucciones
             }
         }
 
-
-
         public void EditarProductos(Producto producto)
         {
             try
             {
-                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "EditarProducto"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion 
+                this.cmd.CommandText = "SpEditarProducto"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
                 this.cmd.Parameters.AddWithValue("@id", producto._Idprod);
@@ -150,7 +148,7 @@ namespace BaseDatos.Instrucciones
             try
             {
                 this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "EliminarProducto"; /// Nombramos el procedimiento creado en el SqlServer
+                this.cmd.CommandText = "SpEliminarProducto"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
                 this.cmd.Parameters.AddWithValue("@idProducto", idProd);
