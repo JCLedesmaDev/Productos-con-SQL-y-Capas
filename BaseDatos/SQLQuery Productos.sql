@@ -30,6 +30,14 @@ CREATE TABLE TablaProductos (
 )
 GO
 
+CREATE TABLE TablaUsuarios (
+	Id INT IDENTITY (1,1) PRIMARY KEY,
+	Email VARCHAR(100) not null,
+	Password VARCHAR(100) not null,
+	PasswordHash VARCHAR(100) not null,
+	NombreCompleto VARCHAR(100) not null
+)
+GO
 ----------------------------------- Mockeos de DATOS de cada Tabla -------------------------------
 
 INSERT INTO TablaCategorias VALUES 
@@ -93,7 +101,7 @@ GO
 CREATE PROC SpAgregarProducto
 @idCategoria INT,
 @idMarca INT,
-@descripcion NVARCHAR (100),
+@descripcion VARCHAR (100),
 @precio FLOAT
 AS
 INSERT INTO TablaProductos values (@idCategoria, @idMarca, @descripcion, @precio)
@@ -104,7 +112,7 @@ CREATE PROC SpEditarProducto
 @id INT,
 @idCategoria INT,
 @idMarca INT,
-@descripcion NVARCHAR (100),
+@descripcion VARCHAR (100),
 @precio FLOAT
 AS
 UPDATE TablaProductos SET 
@@ -125,3 +133,20 @@ WHERE TablaProductos.Id = @idProducto
 GO
 
 
+---------  Registrar Usuario
+CREATE PROC SpRegistrarUsuario
+@email VARCHAR (100),
+@password VARCHAR (100),
+@passwordHash VARCHAR (100),
+@nombreCompleto VARCHAR (100)
+AS
+INSERT INTO TablaUsuarios values (@email, @password, @passwordHash, @nombreCompleto)
+GO
+
+------ INICIAR SESION
+CREATE PROC SpIniciarSesion
+@id INT
+AS
+SELECT TablaUsuarios.Email, TablaUsuarios.NombreCompleto FROM TablaUsuarios 
+WHERE TablaUsuarios.Id = @id
+GO

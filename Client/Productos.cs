@@ -48,10 +48,7 @@ namespace Client
         }
         
         private void ListarProductos()
-        {   /*IGNORAR ESTA LINEA ->*/
-                VistaBaseDatos();
-            /*<- IGNORAR ESTA LINEA*/
-
+        {
             /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
             dataGridView1.DataSource = productoController.ObtenerListadoProductos();
         }
@@ -139,25 +136,5 @@ namespace Client
                 MessageBox.Show("Seleccione una fila");
         }
 
-  
-        //METODOS VISTA DE LA BASE DE DATOS
-        #region ocultar_mostrar_TablasBD
-
-        private void btnVistaBD_Click(object sender, EventArgs e)
-        {
-            if (this.Size.Height == 330)
-                this.Size = new Size(1000, 700);
-            else
-                this.Size = new Size(1000, 330);
-        }
-        private void VistaBaseDatos()
-        {
-
-            DGVProductos.DataSource = productoController.ObtenerTablaProducto();
-            DGVCategorias.DataSource = categoriaController.ObtenerListadoCategorias();
-            DGVMarcas.DataSource = marcaController.ObtenerListadoMarcas();
-        }
-
-        #endregion ocultar_mostrar_TablasBD
     }
 }

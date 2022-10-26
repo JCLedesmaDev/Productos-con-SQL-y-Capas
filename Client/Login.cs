@@ -12,7 +12,7 @@ namespace Client
 {
     public partial class Login : Form
     {
-        Productos logeo;
+        Productos ProductosView;
         public Login()
         {
             InitializeComponent();
@@ -20,15 +20,15 @@ namespace Client
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            if ((txtusuario.Text != "") && (txtcontra.Text != ""))
-            {
-                if ((txtusuario.Text == "AdiminJYV") && (txtusuario.Text == "12345vanejuan"))
-                {
-                    logeo = new Productos();
-                    logeo.ShowDialog();
+            //if ((txtusuario.Text != "") && (txtcontra.Text != ""))
+            //{
+            //if ((txtusuario.Text == "AdiminJYV") && (txtusuario.Text == "12345vanejuan"))
+            //{
+                    ProductosView = new Productos();
+                    ProductosView.ShowDialog();
                     this.Hide();
-                }
-            }
+            //}
+            //}
         }
     }
 }

@@ -120,32 +120,6 @@ namespace BaseDatos.Instrucciones
             }
         }
 
-
-        public DataTable TablaProductos()
-        {
-            DataTable Tabla = new DataTable();
-
-            try
-            {
-                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
-                this.cmd.CommandText = "select * from TablaProductos";
-                this.cmd.CommandType = CommandType.Text; 
-                this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
-
-                Tabla.Load(this.LeerFilas); // Cargamos la tabla con los datos obtenidos
-
-                return Tabla;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Ocurrio un error a la hora de obtener el listado.", e);
-            }
-            finally
-            {
-                this.LeerFilas.Close(); // Cerramos la lectura de datos
-                this.CloseConnection(); // Cerramos la conexion a la BD
-            }
-        }
     }
 
 }

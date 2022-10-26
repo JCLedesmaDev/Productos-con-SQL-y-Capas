@@ -33,11 +33,6 @@ namespace Server.Controllers
         {
             return instProductos.EliminarProducto(idProd);
         }
-    
-        public DataTable ObtenerTablaProducto()
-        {
-            return instProductos.TablaProductos();
-        }
-
+   
     }
 }
