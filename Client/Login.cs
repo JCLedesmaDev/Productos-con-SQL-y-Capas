@@ -39,5 +39,15 @@ namespace Client
                 this.Hide();
             }
         }
+
+        private void btAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
