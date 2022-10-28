@@ -389,6 +389,7 @@
             this.btnregistro.TabIndex = 4;
             this.btnregistro.Text = "Registrarse";
             this.btnregistro.UseVisualStyleBackColor = true;
+            this.btnregistro.Click += new System.EventHandler(this.btnregistro_Click);
             // 
             // lBLEMAIL
             // 

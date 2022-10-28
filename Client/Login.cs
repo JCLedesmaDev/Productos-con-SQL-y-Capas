@@ -49,5 +49,10 @@ namespace Client
         {
 
         }
+
+        private void btnregistro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
