@@ -219,7 +219,6 @@
             this.Name = "Productos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PRODUCTOS";
-            this.Load += new System.EventHandler(this.PRODUCTOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategorias)).EndInit();

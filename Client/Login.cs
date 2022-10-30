@@ -66,6 +66,7 @@ namespace Client
             MessageBox.Show(isRegisterMessage);
             clearFormRegister();
 
+            // Re direccionamos el nav a la seccion del Login para iniciar sesion
             navLoginRegistro.SelectedTab = tabLogin;
         }
 
