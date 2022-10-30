@@ -16,9 +16,9 @@ namespace BaseDatos.Instrucciones
                 this.cmd.CommandText = "SpListarMarcas"; /// Nombramos el procedimiento creado en el SqlServer
                 this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
 
-                this.LeerFilas = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
+                this.reader = this.cmd.ExecuteReader(); // Almacenamos los resultados de nuestra peticion
 
-                Table.Load(this.LeerFilas); // Cargamos la tabla con los datos obtenidos
+                Table.Load(this.reader); // Cargamos la tabla con los datos obtenidos
 
                 return Table;
             }
@@ -28,7 +28,7 @@ namespace BaseDatos.Instrucciones
             }
             finally
             {
-                this.LeerFilas.Close(); // Cerramos la lectura de datos
+                this.reader.Close(); // Cerramos la lectura de datos
                 this.CloseConnection(); // Cerramos la conexion a la BD
             }
         }

@@ -32,8 +32,8 @@ GO
 
 CREATE TABLE TablaUsuarios (
 	Id INT IDENTITY (1,1) PRIMARY KEY,
-	Email VARCHAR(100) not null,
-	Password VARCHAR(100) not null,
+	Email VARCHAR(100) not null UNIQUE,
+	Pass VARCHAR(100) not null,
 	NombreCompleto VARCHAR(100) not null,
 	CreateDateUser DATETIME not null)
 GO
@@ -137,7 +137,7 @@ GO
 
 
 ---------  Registrar Usuario
-CREATE PROC SpRegistrarUsuario
+CREATE PROC SpAgregarUsuario
 @email VARCHAR (100),
 @password VARCHAR (100),
 @nombreCompleto VARCHAR (100),
@@ -147,11 +147,18 @@ INSERT INTO TablaUsuarios values (@email, @password, @nombreCompleto, @createDat
 GO
 
 ------ INICIAR SESION
-CREATE PROC SpIniciarSesion
+CREATE PROC SpObtenerUsuario
 @email VARCHAR (100),
 @password VARCHAR (100)
 AS
 SELECT TablaUsuarios.Email, TablaUsuarios.NombreCompleto FROM TablaUsuarios 
 WHERE 
-TablaUsuarios.Email = @email AND TablaUsuarios.Password = @password
+TablaUsuarios.Email = @email AND TablaUsuarios.Pass = @password
 GO
+
+
+exec SpObtenerUsuario 'juanchi@gmail.com', '123'
+
+
+DECLARE @datetime datetime = '1998-01-01 23:59:59.997';  
+exec SpAgregarUsuario 'lalala@gmail.com', '123', 'Jose Eduardo', @datetime

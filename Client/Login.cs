@@ -26,33 +26,63 @@ namespace Client
 
             Usuario usuarioLogin = new Usuario
             {
-                _Email = "juanchi@gmail.com",
-                _Password = "123"
+                _Email = txtEmail.Text,
+                _Password = txtcontra.Text
             };
 
-            bool result = usuarioController.Login(usuarioLogin);
+            bool iSLogin = usuarioController.Login(usuarioLogin);
 
-            if (result)
+            if (iSLogin == true)
             {
                 ProductosView = new Productos();
                 ProductosView.ShowDialog();
                 this.Hide();
             }
-        }
+            else
+            {
+                MessageBox.Show("Datos ingresados incorrectos, intentelo nuevamente");
+            }
 
-        private void btAceptar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            clearFormLogin();
         }
 
         private void btnregistro_Click(object sender, EventArgs e)
         {
+            if (txtContraRegister.Text != txtRepeContra.Text)
+            {
+                MessageBox.Show("Las contraseñas ingresadas no coinciden");
+                return;
+            }
 
+            Usuario usuarioRegister = new Usuario
+            {
+                _Email = txtEmailRegister.Text,
+                _Password = txtContraRegister.Text,
+                _NombreCompleto = txtNombreCompleto.Text                
+            };
+            string isRegisterMessage = usuarioController.Registrarse(usuarioRegister);
+
+            MessageBox.Show(isRegisterMessage);
+            clearFormRegister();
+
+            navLoginRegistro.SelectedTab = tabLogin;
         }
+        public void clearFormLogin()
+        {
+            txtEmail.Text = "";
+            txtcontra.Text = "";
+        }
+
+        public void clearFormRegister()
+        {
+            txtEmailRegister.Text = "";
+            txtContraRegister.Text = "";
+            txtNombreCompleto.Text = "";
+            txtRepeContra.Text = "";
+        }
+
+
     }
+
+
 }

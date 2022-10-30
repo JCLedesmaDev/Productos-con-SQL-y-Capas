@@ -2,6 +2,7 @@
 using Entidades.Data.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,21 @@ namespace Server.Controllers
 
         public bool Login(Usuario usuario)
         {
-            return instUsuario.IniciarSesion(usuario);
+            bool result = false;
+            List<object> User = instUsuario.GetUser(usuario);
+
+            if (User.Count > 0)
+            {
+                result = true;
+            }
+
+            return result;
         }
 
 
         public string Registrarse(Usuario usuario)
         {
-            return instUsuario.Registrar(usuario);
+            return instUsuario.CreateUser(usuario);
         }
 
     }
