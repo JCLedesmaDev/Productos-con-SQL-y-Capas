@@ -63,9 +63,16 @@ namespace Client
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Producto producto = new Producto();
+
             
             if (Operacion == "Insertar")
             {
+                 if (Convert.ToInt32(CmbCategoria.SelectedValue) == 1 || Convert.ToInt32(CmbMarca.SelectedValue) == 1 || txtDescripcion.Text == "" || txtPrecio.Text == "")
+                 {
+                     MessageBox.Show("Debe completar todos los campos para insertar un producto");
+                     return;
+                 }
+
                 producto = new Producto
                 {
                     _IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue),
@@ -75,6 +82,8 @@ namespace Client
                 };
 
                 string result = productoController.InsertarProducto(producto);
+                CmbCategoria.SelectedValue = 1;
+                CmbMarca.SelectedValue = 1;
 
                 MessageBox.Show(result);
             }

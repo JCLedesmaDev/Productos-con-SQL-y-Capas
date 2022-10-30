@@ -16,6 +16,7 @@ namespace Client
     {
         Productos ProductosView;
         UsuarioController usuarioController = new UsuarioController();
+        
         public Login()
         {
             InitializeComponent();
@@ -30,9 +31,9 @@ namespace Client
                 _Password = txtcontra.Text
             };
 
-            bool iSLogin = usuarioController.Login(usuarioLogin);
+            bool isLogin = usuarioController.Login(usuarioLogin);
 
-            if (iSLogin == true)
+            if (isLogin == true)
             {
                 ProductosView = new Productos();
                 ProductosView.ShowDialog();
@@ -67,6 +68,7 @@ namespace Client
 
             navLoginRegistro.SelectedTab = tabLogin;
         }
+
         public void clearFormLogin()
         {
             txtEmail.Text = "";
@@ -83,6 +85,4 @@ namespace Client
 
 
     }
-
-
 }
