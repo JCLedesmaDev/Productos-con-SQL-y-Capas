@@ -159,6 +159,4 @@ GO
 
 exec SpObtenerUsuario 'juanchi@gmail.com', '123'
 
-
-DECLARE @datetime datetime = '1998-01-01 23:59:59.997';  
-exec SpAgregarUsuario 'lalala@gmail.com', '123', 'Jose Eduardo', @datetime
+ 
