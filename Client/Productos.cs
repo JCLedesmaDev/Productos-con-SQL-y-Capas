@@ -136,5 +136,22 @@ namespace Client
                 MessageBox.Show("Seleccione una fila");
         }
 
+        private void boton_buscarGeneral_Click(object sender, EventArgs e)
+        {
+            if (!txt_buscar.Text.Equals(""))
+            {
+                //DataTable datatable = new DataTable();
+                Productos buscar = new Productos();
+                //LimpiarDGV();
+                dataGridView1 = Productos.buscarGeneral(txt_buscar.Text.Trim());
+
+                if (dataGridView1 != null)
+                {
+                    Console.WriteLine("ANTES DE LLENAR DGV");
+                    llenarDgv(dataGridView1);
+
+                }
+            }
+        }
     }
 }
