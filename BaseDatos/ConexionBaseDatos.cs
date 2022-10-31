@@ -12,7 +12,7 @@ namespace BaseDatos
 
         public SqlCommand cmd = new SqlCommand();
 
-        public SqlDataReader LeerFilas;
+        public SqlDataReader reader;
 
         protected SqlConnection ConnectionSql { get; set; }
 

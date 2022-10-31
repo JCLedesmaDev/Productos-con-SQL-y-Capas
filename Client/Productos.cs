@@ -14,6 +14,10 @@ namespace Client
         public Productos()
         {
             InitializeComponent();
+            //CARGAR LISTAS EN COMBOBOXS/ DATAGRIDVIEW
+            ListarCategorias();
+            ListarMarcas();
+            ListarProductos();
         }
 
         ProductoController productoController = new ProductoController();
@@ -23,33 +27,33 @@ namespace Client
         string Operacion = "Insertar";
         string idprod;
 
-        private void PRODUCTOS_Load(object sender, EventArgs e)
-        {
-            //CARGAR LISTAS EN COMBOBOXS/ DATAGRIDVIEW
-            ListarCategorias();
-            ListarMarcas();
-            ListarProductos();
-        }
-
         private void ListarCategorias()
         {
-            /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
-            CmbCategoria.DataSource = categoriaController.ObtenerListadoCategorias();
-            CmbCategoria.DisplayMember = "Descripcion";
-            CmbCategoria.ValueMember = "Id";
+            /// Almacenamos el listado obtenido en el ComboBox
+            CmbCategoria.DataSource = categoriaController.ObtenerListadoCategorias(); 
+            
+            // Indicamos que propiedad de los datos del listado obtenido, se mostrara en pantalla
+            CmbCategoria.DisplayMember = "Descripcion"; 
+            
+            // Indicamos que propiedad de los datos del listado obtenido, sera el valor por defecto al seleccionar un combo
+            CmbCategoria.ValueMember = "Id"; 
         }
         
         private void ListarMarcas()
         {
-            /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
+            /// Almacenamos el listado obtenido en el ComboBox
             CmbMarca.DataSource = marcaController.ObtenerListadoMarcas();
+
+            // Indicamos que propiedad de los datos del listado obtenido, se mostrara en pantalla
             CmbMarca.DisplayMember = "Descripcion";
+
+            // Indicamos que propiedad de los datos del listado obtenido, sera el valor por defecto al seleccionar un combo
             CmbMarca.ValueMember = "Id";
         }
         
         private void ListarProductos()
         {
-            /* Nota: Las columnas de la Tabla se cargan automaticamente a partir de los datos que nos devuelve ListarProductos  */
+            /// Almacenamos el listado obtenido en el ComboBox
             dataGridView1.DataSource = productoController.ObtenerListadoProductos();
         }
 
@@ -63,9 +67,17 @@ namespace Client
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Producto producto = new Producto();
+
             
             if (Operacion == "Insertar")
             {
+                 // Validacion de campos
+                 if (Convert.ToInt32(CmbCategoria.SelectedValue) == 1 || Convert.ToInt32(CmbMarca.SelectedValue) == 1 || txtDescripcion.Text == "" || txtPrecio.Text == "")
+                 {
+                     MessageBox.Show("Debe completar todos los campos para insertar un producto");
+                     return;
+                 }
+
                 producto = new Producto
                 {
                     _IdCategoria = Convert.ToInt32(CmbCategoria.SelectedValue),
@@ -75,8 +87,11 @@ namespace Client
                 };
 
                 string result = productoController.InsertarProducto(producto);
-
                 MessageBox.Show(result);
+                
+                // Indicamos en los Select que seleccione la opcion cuyo valor es 1 y que es un string vacio.
+                CmbCategoria.SelectedValue = 1;
+                CmbMarca.SelectedValue = 1;
             }
             
             if (Operacion == "Editar")
