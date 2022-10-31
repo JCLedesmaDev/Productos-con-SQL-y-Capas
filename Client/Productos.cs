@@ -168,5 +168,10 @@ namespace Client
                 }
             }
         }
+
+        private void Productos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

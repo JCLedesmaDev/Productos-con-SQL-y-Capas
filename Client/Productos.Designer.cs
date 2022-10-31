@@ -52,20 +52,25 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boton_buscarGeneral = new System.Windows.Forms.Button();
             this.txt_Categoria = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarNuevasCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cacaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMarcas)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(549, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(549, 213);
             this.dataGridView1.TabIndex = 0;
             // 
             // CmbCategoria
@@ -90,7 +95,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(595, 43);
+            this.label1.Location = new System.Drawing.Point(595, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 15);
             this.label1.TabIndex = 3;
@@ -100,7 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(595, 70);
+            this.label2.Location = new System.Drawing.Point(595, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 15);
             this.label2.TabIndex = 4;
@@ -109,7 +114,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(692, 97);
+            this.txtDescripcion.Location = new System.Drawing.Point(692, 108);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(251, 21);
             this.txtDescripcion.TabIndex = 5;
@@ -117,7 +122,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(692, 124);
+            this.txtPrecio.Location = new System.Drawing.Point(694, 146);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(251, 21);
             this.txtPrecio.TabIndex = 6;
@@ -126,7 +131,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(595, 97);
+            this.label3.Location = new System.Drawing.Point(595, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 15);
             this.label3.TabIndex = 7;
@@ -136,7 +141,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(595, 125);
+            this.label4.Location = new System.Drawing.Point(595, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 15);
             this.label4.TabIndex = 8;
@@ -144,7 +149,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(627, 159);
+            this.btnAgregar.Location = new System.Drawing.Point(621, 192);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(324, 41);
             this.btnAgregar.TabIndex = 9;
@@ -155,7 +160,7 @@
             // btnVistaBD
             // 
             this.btnVistaBD.Location = new System.Drawing.Point(0, 0);
-            this.btnVistaBD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVistaBD.Margin = new System.Windows.Forms.Padding(2);
             this.btnVistaBD.Name = "btnVistaBD";
             this.btnVistaBD.Size = new System.Drawing.Size(56, 19);
             this.btnVistaBD.TabIndex = 22;
@@ -198,9 +203,9 @@
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 81);
+            this.panel1.Size = new System.Drawing.Size(570, 93);
             this.panel1.TabIndex = 23;
             // 
             // label7
@@ -222,9 +227,9 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(486, 223);
+            this.btnEditar.Location = new System.Drawing.Point(466, 339);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(95, 36);
             this.btnEditar.TabIndex = 18;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -234,9 +239,9 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(405, 220);
+            this.btnEliminar.Location = new System.Drawing.Point(313, 339);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(101, 41);
             this.btnEliminar.TabIndex = 21;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -246,7 +251,7 @@
             // 
             this.groupBox1.Controls.Add(this.boton_buscarGeneral);
             this.groupBox1.Controls.Add(this.txt_Categoria);
-            this.groupBox1.Location = new System.Drawing.Point(590, 220);
+            this.groupBox1.Location = new System.Drawing.Point(598, 259);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -274,11 +279,45 @@
             this.txt_Categoria.Size = new System.Drawing.Size(338, 20);
             this.txt_Categoria.TabIndex = 0;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcionesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
+            this.menuStrip1.TabIndex = 25;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarNuevasCategoriasToolStripMenuItem,
+            this.cacaToolStripMenuItem});
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.opcionesToolStripMenuItem.Text = "Opciones";
+            // 
+            // agregarNuevasCategoriasToolStripMenuItem
+            // 
+            this.agregarNuevasCategoriasToolStripMenuItem.Name = "agregarNuevasCategoriasToolStripMenuItem";
+            this.agregarNuevasCategoriasToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.agregarNuevasCategoriasToolStripMenuItem.Text = "Agregar nuevas categorias";
+            // 
+            // cacaToolStripMenuItem
+            // 
+            this.cacaToolStripMenuItem.Name = "cacaToolStripMenuItem";
+            this.cacaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.cacaToolStripMenuItem.Text = "caca";
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 436);
+            this.ClientSize = new System.Drawing.Size(1000, 514);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -298,12 +337,15 @@
             this.Name = "Productos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PRODUCTOS";
+            this.Load += new System.EventHandler(this.Productos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMarcas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +377,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button boton_buscarGeneral;
         private System.Windows.Forms.TextBox txt_Categoria;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarNuevasCategoriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cacaToolStripMenuItem;
     }
 }
