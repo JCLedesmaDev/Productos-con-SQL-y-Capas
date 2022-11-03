@@ -28,7 +28,7 @@ namespace Client
             Usuario usuarioLogin = new Usuario
             {
                 _Email = txtEmail.Text,
-                _Password = txtcontra.Text
+                _Password = MASKEDTXTCONTRA.Text
             };
 
             bool isLogin = usuarioController.Login(usuarioLogin);
@@ -73,7 +73,7 @@ namespace Client
         public void clearFormLogin()
         {
             txtEmail.Text = "";
-            txtcontra.Text = "";
+            MASKEDTXTCONTRA.Text = "";
         }
 
         public void clearFormRegister()

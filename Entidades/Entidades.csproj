@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Comun\IdComun.cs" />
+    <Compile Include="Data\Entidades\Categoria.cs" />
+    <Compile Include="Data\Entidades\Marca.cs" />
     <Compile Include="Data\Entidades\Producto.cs" />
     <Compile Include="Data\Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
