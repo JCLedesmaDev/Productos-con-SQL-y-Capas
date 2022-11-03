@@ -51,7 +51,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boton_buscarGeneral = new System.Windows.Forms.Button();
-            this.txt_Categoria = new System.Windows.Forms.TextBox();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarNuevasCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -250,7 +250,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.boton_buscarGeneral);
-            this.groupBox1.Controls.Add(this.txt_Categoria);
+            this.groupBox1.Controls.Add(this.txt_buscar);
             this.groupBox1.Location = new System.Drawing.Point(598, 259);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -271,13 +271,13 @@
             this.boton_buscarGeneral.UseVisualStyleBackColor = true;
             this.boton_buscarGeneral.Click += new System.EventHandler(this.boton_buscarGeneral_Click);
             // 
-            // txt_Categoria
+            // txt_buscar
             // 
-            this.txt_Categoria.Location = new System.Drawing.Point(23, 47);
-            this.txt_Categoria.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_Categoria.Name = "txt_Categoria";
-            this.txt_Categoria.Size = new System.Drawing.Size(338, 20);
-            this.txt_Categoria.TabIndex = 0;
+            this.txt_buscar.Location = new System.Drawing.Point(23, 47);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(338, 20);
+            this.txt_buscar.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -376,7 +376,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button boton_buscarGeneral;
-        private System.Windows.Forms.TextBox txt_Categoria;
+        private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarNuevasCategoriasToolStripMenuItem;

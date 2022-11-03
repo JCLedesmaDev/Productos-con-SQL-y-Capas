@@ -159,13 +159,6 @@ namespace Client
                 Productos buscar = new Productos();
                 //LimpiarDGV();
                 dataGridView1 = Productos.buscarGeneral(txt_buscar.Text.Trim());
-
-                if (dataGridView1 != null)
-                {
-                    Console.WriteLine("ANTES DE LLENAR DGV");
-                    llenarDgv(dataGridView1);
-
-                }
             }
         }
 

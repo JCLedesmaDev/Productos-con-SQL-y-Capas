@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Comun\IdComun.cs" />
-    <Compile Include="Data\Entidades\Guardar.cs" />
+    <Compile Include="Data\Entidades\Buscar.cs" />
     <Compile Include="Data\Entidades\Producto.cs" />
     <Compile Include="Data\Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

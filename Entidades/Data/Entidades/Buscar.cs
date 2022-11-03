@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Entidades.Data.Entidades
 {
-    internal class Guardar
+    internal class Buscar
     {
         static string cnString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Productos;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
 
@@ -23,7 +23,8 @@ namespace Entidades.Data.Entidades
         {
 
             conexion.Open();
-            string query = "SELECT [idCategoria],[idMarca],[descripcion],[precio], FROM Productos WHERE nombre LIKE '%" + str + "%' + str + "%' or marca LIKE '%" + str + "%'";
+            string query = "SELECT [idCategoria],[idMarca],[descripcion],[precio] FROM Productos; WHERE nombre LIKE '%" + str + "%' or idCategoria LIKE '%" + str + "%' or idMarca LIKE '%" + str + "%' or Descripcion LIKE '%" + str + "%' or Precio LIKE '%";
+
 
 
             SqlCommand cmd = new SqlCommand(query, conexion);
