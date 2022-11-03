@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buscar.cs" />
     <Compile Include="ConexionBaseDatos.cs" />
+    <Compile Include="GuardarProducto.cs" />
     <Compile Include="Instrucciones\InstCategoria.cs" />
     <Compile Include="Instrucciones\InstMarca.cs" />
     <Compile Include="Instrucciones\InstProductos.cs" />

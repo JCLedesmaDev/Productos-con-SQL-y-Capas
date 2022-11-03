@@ -56,6 +56,7 @@
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarNuevasCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cacaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCategorias)).BeginInit();
@@ -229,7 +230,7 @@
             // 
             this.btnEditar.Location = new System.Drawing.Point(466, 339);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(95, 36);
+            this.btnEditar.Size = new System.Drawing.Size(95, 41);
             this.btnEditar.TabIndex = 18;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -262,7 +263,7 @@
             // 
             // boton_buscarGeneral
             // 
-            this.boton_buscarGeneral.Location = new System.Drawing.Point(23, 132);
+            this.boton_buscarGeneral.Location = new System.Drawing.Point(23, 125);
             this.boton_buscarGeneral.Margin = new System.Windows.Forms.Padding(2);
             this.boton_buscarGeneral.Name = "boton_buscarGeneral";
             this.boton_buscarGeneral.Size = new System.Drawing.Size(338, 34);
@@ -278,6 +279,7 @@
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(338, 20);
             this.txt_buscar.TabIndex = 0;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // menuStrip1
             // 
@@ -303,20 +305,32 @@
             // agregarNuevasCategoriasToolStripMenuItem
             // 
             this.agregarNuevasCategoriasToolStripMenuItem.Name = "agregarNuevasCategoriasToolStripMenuItem";
-            this.agregarNuevasCategoriasToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.agregarNuevasCategoriasToolStripMenuItem.Text = "Agregar nuevas categorias";
+            this.agregarNuevasCategoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarNuevasCategoriasToolStripMenuItem.Text = "Nuevo Producto";
+            this.agregarNuevasCategoriasToolStripMenuItem.Click += new System.EventHandler(this.nuevoProductoToolStripMenuItem_Click);
             // 
             // cacaToolStripMenuItem
             // 
             this.cacaToolStripMenuItem.Name = "cacaToolStripMenuItem";
-            this.cacaToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.cacaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cacaToolStripMenuItem.Text = "caca";
+            // 
+            // btnsalir
+            // 
+            this.btnsalir.Location = new System.Drawing.Point(33, 400);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(78, 38);
+            this.btnsalir.TabIndex = 26;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 514);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEliminar);
@@ -381,5 +395,6 @@
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarNuevasCategoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cacaToolStripMenuItem;
+        private System.Windows.Forms.Button btnsalir;
     }
 }
