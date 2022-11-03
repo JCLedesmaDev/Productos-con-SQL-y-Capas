@@ -60,7 +60,6 @@
             this.txtRepeContra = new System.Windows.Forms.TextBox();
             this.txtContraRegister = new System.Windows.Forms.TextBox();
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
-            this.txtEmailRegister = new System.Windows.Forms.TextBox();
             this.lBLREPCONTRA = new System.Windows.Forms.Label();
             this.lBLCONTRA = new System.Windows.Forms.Label();
             this.lBLNOMYAPELL = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.btnregistro = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.eventLog1 = new System.Diagnostics.EventLog();
+            this.maskedemail = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.tabC_Producto.SuspendLayout();
             this.tabC_Control.SuspendLayout();
@@ -360,10 +360,10 @@
             // tabRegistro
             // 
             this.tabRegistro.BackColor = System.Drawing.Color.DarkGray;
+            this.tabRegistro.Controls.Add(this.maskedemail);
             this.tabRegistro.Controls.Add(this.txtRepeContra);
             this.tabRegistro.Controls.Add(this.txtContraRegister);
             this.tabRegistro.Controls.Add(this.txtNombreCompleto);
-            this.tabRegistro.Controls.Add(this.txtEmailRegister);
             this.tabRegistro.Controls.Add(this.lBLREPCONTRA);
             this.tabRegistro.Controls.Add(this.lBLCONTRA);
             this.tabRegistro.Controls.Add(this.lBLNOMYAPELL);
@@ -399,13 +399,6 @@
             this.txtNombreCompleto.Name = "txtNombreCompleto";
             this.txtNombreCompleto.Size = new System.Drawing.Size(150, 20);
             this.txtNombreCompleto.TabIndex = 10;
-            // 
-            // txtEmailRegister
-            // 
-            this.txtEmailRegister.Location = new System.Drawing.Point(180, 25);
-            this.txtEmailRegister.Name = "txtEmailRegister";
-            this.txtEmailRegister.Size = new System.Drawing.Size(150, 20);
-            this.txtEmailRegister.TabIndex = 9;
             // 
             // lBLREPCONTRA
             // 
@@ -465,6 +458,14 @@
             // eventLog1
             // 
             this.eventLog1.SynchronizingObject = this;
+            // 
+            // maskedemail
+            // 
+            this.maskedemail.Location = new System.Drawing.Point(180, 35);
+            this.maskedemail.Mask = "LLLLLL000@LLLLL.LLL";
+            this.maskedemail.Name = "maskedemail";
+            this.maskedemail.Size = new System.Drawing.Size(150, 20);
+            this.maskedemail.TabIndex = 11;
             // 
             // Login
             // 
@@ -526,7 +527,6 @@
         private System.Windows.Forms.TextBox txtRepeContra;
         private System.Windows.Forms.TextBox txtContraRegister;
         private System.Windows.Forms.TextBox txtNombreCompleto;
-        private System.Windows.Forms.TextBox txtEmailRegister;
         private System.Windows.Forms.Label lBLREPCONTRA;
         private System.Windows.Forms.Label lBLCONTRA;
         private System.Windows.Forms.Label lBLNOMYAPELL;
@@ -534,5 +534,6 @@
         private System.Windows.Forms.Button btnregistro;
         private System.Windows.Forms.MaskedTextBox MASKEDTXTUSUARIO;
         private System.Diagnostics.EventLog eventLog1;
+        private System.Windows.Forms.MaskedTextBox maskedemail;
     }
 }

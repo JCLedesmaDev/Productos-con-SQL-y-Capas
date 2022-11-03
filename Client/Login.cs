@@ -93,5 +93,10 @@ namespace Client
         {
             MASKEDTXTUSUARIO.UseSystemPasswordChar = true;
         }
+
+        private void txtEmailRegister_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
