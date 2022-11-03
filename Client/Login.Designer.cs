@@ -66,7 +66,8 @@
             this.lBLEMAIL = new System.Windows.Forms.Label();
             this.btnregistro = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.MASKEDTXTCONTRA = new System.Windows.Forms.MaskedTextBox();
+            this.eventLog1 = new System.Diagnostics.EventLog();
             this.panel1.SuspendLayout();
             this.tabC_Producto.SuspendLayout();
             this.tabC_Control.SuspendLayout();
@@ -74,6 +75,7 @@
             this.navLoginRegistro.SuspendLayout();
             this.tabLogin.SuspendLayout();
             this.tabRegistro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -312,7 +314,7 @@
             // tabLogin
             // 
             this.tabLogin.BackColor = System.Drawing.Color.DarkGray;
-            this.tabLogin.Controls.Add(this.maskedTextBox1);
+            this.tabLogin.Controls.Add(this.MASKEDTXTCONTRA);
             this.tabLogin.Controls.Add(this.button2);
             this.tabLogin.Controls.Add(this.lblcontraseña);
             this.tabLogin.Controls.Add(this.txtEmail);
@@ -451,13 +453,18 @@
             this.button1.Text = "Cargar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // MASKEDTXTCONTRA
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(131, 156);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBox1.TabIndex = 7;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.MASKEDTXTCONTRA.Location = new System.Drawing.Point(131, 156);
+            this.MASKEDTXTCONTRA.Mask = "LLLLLL000@LLLLL.LLL";
+            this.MASKEDTXTCONTRA.Name = "MASKEDTXTCONTRA";
+            this.MASKEDTXTCONTRA.Size = new System.Drawing.Size(150, 20);
+            this.MASKEDTXTCONTRA.TabIndex = 7;
+            this.MASKEDTXTCONTRA.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
             // 
             // Login
             // 
@@ -480,6 +487,7 @@
             this.tabLogin.PerformLayout();
             this.tabRegistro.ResumeLayout(false);
             this.tabRegistro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -524,6 +532,7 @@
         private System.Windows.Forms.Label lBLNOMYAPELL;
         private System.Windows.Forms.Label lBLEMAIL;
         private System.Windows.Forms.Button btnregistro;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox MASKEDTXTCONTRA;
+        private System.Diagnostics.EventLog eventLog1;
     }
 }

@@ -84,11 +84,6 @@ namespace Client
             txtRepeContra.Text = "";
         }
 
-        private void txtcontra_TextChanged(object sender, EventArgs e)
-        {
-            txtcontra.UseSystemPasswordChar = true; 
-        }
-
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
 
@@ -96,7 +91,7 @@ namespace Client
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            txtcontra.UseSystemPasswordChar = true;
+            MASKEDTXTCONTRA.UseSystemPasswordChar = true;
         }
     }
 }
