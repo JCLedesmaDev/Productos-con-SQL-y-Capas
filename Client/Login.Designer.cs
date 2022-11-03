@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtcontraseña = new System.Windows.Forms.TextBox();
             this.btnlogin = new System.Windows.Forms.Button();
             this.lblusuario = new System.Windows.Forms.Label();
             this.lblcontraseña = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.lblCodigoMov = new System.Windows.Forms.Label();
             this.navLoginRegistro = new System.Windows.Forms.TabControl();
             this.tabLogin = new System.Windows.Forms.TabPage();
+            this.MASKEDTXTUSUARIO = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabRegistro = new System.Windows.Forms.TabPage();
@@ -66,7 +67,6 @@
             this.lBLEMAIL = new System.Windows.Forms.Label();
             this.btnregistro = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.MASKEDTXTCONTRA = new System.Windows.Forms.MaskedTextBox();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.panel1.SuspendLayout();
             this.tabC_Producto.SuspendLayout();
@@ -78,13 +78,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtEmail
+            // txtcontraseña
             // 
-            this.txtEmail.Location = new System.Drawing.Point(135, 51);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(150, 20);
-            this.txtEmail.TabIndex = 0;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtcontraseña.Location = new System.Drawing.Point(145, 155);
+            this.txtcontraseña.Name = "txtcontraseña";
+            this.txtcontraseña.Size = new System.Drawing.Size(150, 20);
+            this.txtcontraseña.TabIndex = 0;
+            this.txtcontraseña.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // btnlogin
             // 
@@ -314,10 +314,10 @@
             // tabLogin
             // 
             this.tabLogin.BackColor = System.Drawing.Color.DarkGray;
-            this.tabLogin.Controls.Add(this.MASKEDTXTCONTRA);
+            this.tabLogin.Controls.Add(this.MASKEDTXTUSUARIO);
             this.tabLogin.Controls.Add(this.button2);
             this.tabLogin.Controls.Add(this.lblcontraseña);
-            this.tabLogin.Controls.Add(this.txtEmail);
+            this.tabLogin.Controls.Add(this.txtcontraseña);
             this.tabLogin.Controls.Add(this.lblusuario);
             this.tabLogin.Controls.Add(this.radioButton1);
             this.tabLogin.Controls.Add(this.btnlogin);
@@ -327,6 +327,15 @@
             this.tabLogin.Size = new System.Drawing.Size(359, 364);
             this.tabLogin.TabIndex = 1;
             this.tabLogin.Text = "INICIO DE SESION";
+            // 
+            // MASKEDTXTUSUARIO
+            // 
+            this.MASKEDTXTUSUARIO.Location = new System.Drawing.Point(145, 52);
+            this.MASKEDTXTUSUARIO.Mask = "LLLLLL000@LLLLL.LLL";
+            this.MASKEDTXTUSUARIO.Name = "MASKEDTXTUSUARIO";
+            this.MASKEDTXTUSUARIO.Size = new System.Drawing.Size(150, 20);
+            this.MASKEDTXTUSUARIO.TabIndex = 7;
+            this.MASKEDTXTUSUARIO.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // button2
             // 
@@ -453,15 +462,6 @@
             this.button1.Text = "Cargar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // MASKEDTXTCONTRA
-            // 
-            this.MASKEDTXTCONTRA.Location = new System.Drawing.Point(131, 156);
-            this.MASKEDTXTCONTRA.Mask = "LLLLLL000@LLLLL.LLL";
-            this.MASKEDTXTCONTRA.Name = "MASKEDTXTCONTRA";
-            this.MASKEDTXTCONTRA.Size = new System.Drawing.Size(150, 20);
-            this.MASKEDTXTCONTRA.TabIndex = 7;
-            this.MASKEDTXTCONTRA.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
             // eventLog1
             // 
             this.eventLog1.SynchronizingObject = this;
@@ -494,7 +494,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtcontraseña;
         private System.Windows.Forms.Button btnlogin;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Label lblcontraseña;
@@ -532,7 +532,7 @@
         private System.Windows.Forms.Label lBLNOMYAPELL;
         private System.Windows.Forms.Label lBLEMAIL;
         private System.Windows.Forms.Button btnregistro;
-        private System.Windows.Forms.MaskedTextBox MASKEDTXTCONTRA;
+        private System.Windows.Forms.MaskedTextBox MASKEDTXTUSUARIO;
         private System.Diagnostics.EventLog eventLog1;
     }
 }

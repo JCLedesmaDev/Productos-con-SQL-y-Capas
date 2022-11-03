@@ -27,9 +27,9 @@ namespace Client
 
             Usuario usuarioLogin = new Usuario
             {
-                _Email = txtEmail.Text,
-                _Password = MASKEDTXTCONTRA.Text
-            };
+                _Email = MASKEDTXTUSUARIO.Text,
+                _Password = txtcontraseña.Text,
+            }; 
 
             bool isLogin = usuarioController.Login(usuarioLogin);
 
@@ -72,8 +72,8 @@ namespace Client
 
         public void clearFormLogin()
         {
-            txtEmail.Text = "";
-            MASKEDTXTCONTRA.Text = "";
+            txtcontraseña.Text = "";
+            MASKEDTXTUSUARIO.Text = "";
         }
 
         public void clearFormRegister()
@@ -91,7 +91,7 @@ namespace Client
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            MASKEDTXTCONTRA.UseSystemPasswordChar = true;
+            MASKEDTXTUSUARIO.UseSystemPasswordChar = true;
         }
     }
 }
