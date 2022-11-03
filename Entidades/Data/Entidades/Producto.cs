@@ -36,5 +36,9 @@ namespace Entidades.Data.Entidades
             get { return precio; }
             set { precio = value; }
         }
+
+        public Categoria _Categoria { get; set; }
+
+        public Marca _Marca { get; set; }
     }
 }

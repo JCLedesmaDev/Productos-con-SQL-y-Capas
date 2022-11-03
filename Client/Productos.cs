@@ -1,6 +1,8 @@
-﻿using Entidades.Data.Entidades;
+﻿using BaseDatos;
+using Entidades.Data.Entidades;
 using Server.Controllers;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -151,14 +153,21 @@ namespace Client
                 MessageBox.Show("Seleccione una fila");
         }
 
+
+        /// //////////////////////////////////
         private void boton_buscarGeneral_Click(object sender, EventArgs e)
         {
             if (!txt_buscar.Text.Equals(""))
             {
                 //DataTable datatable = new DataTable();
-                Productos buscar = new Productos();
+                Buscar buscar = new Buscar();
                 //LimpiarDGV();
-                dataGridView1 = Productos.buscarGeneral(txt_buscar.Text.Trim());
+                dataGridView1.DataSource = buscar.buscarGeneral(txt_buscar.Text.Trim());
+
+            }
+            else
+            {
+                this.ListarProductos();
             }
         }
 
@@ -180,6 +189,12 @@ namespace Client
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.ListarProductos();
+            txt_buscar.Text = "";
         }
     }
 

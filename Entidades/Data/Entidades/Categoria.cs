@@ -17,5 +17,8 @@ namespace Entidades.Data.Entidades
             get { return descripcion; }
             set { descripcion = value; }
         }
+
+        public List<Producto> Productos { get; set; } 
+
     }
 }

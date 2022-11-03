@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Entidades.Data.Entidades
 {
-    internal class GuardarProducto
+    public class GuardarProducto
     {
         static string cnString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Productos;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
 

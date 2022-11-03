@@ -57,7 +57,7 @@ namespace Client
 
             Usuario usuarioRegister = new Usuario
             {
-                _Email = txtEmailRegister.Text,
+                _Email = maskedemailRegister.Text,
                 _Password = txtContraRegister.Text,
                 _NombreCompleto = txtNombreCompleto.Text                
             };
@@ -78,7 +78,7 @@ namespace Client
 
         public void clearFormRegister()
         {
-            txtEmailRegister.Text = "";
+            maskedemailRegister.Text = "";
             txtContraRegister.Text = "";
             txtNombreCompleto.Text = "";
             txtRepeContra.Text = "";

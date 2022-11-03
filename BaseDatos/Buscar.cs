@@ -7,42 +7,37 @@ using System.Data.SqlClient;
 using System.Data;
 
 
-namespace Entidades.Data.Entidades
+namespace BaseDatos
 {
-    internal class Buscar
+    public class Buscar: ConexionBaseDatos
     {
-        static string cnString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Productos;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False";
-
-
-        SqlConnection conexion = new SqlConnection(cnString);
-
-        
-        DataTable dataGridView1 = new DataTable();
 
         public DataTable buscarGeneral(string str)
         {
+            string query = $"SELECT * FROM TablaProductos WHERE Descripcion LIKE '%{str}%';";
 
-            conexion.Open();
-            string query = "SELECT [idCategoria],[idMarca],[descripcion],[precio] FROM Productos; WHERE nombre LIKE '%" + str + "%' or idCategoria LIKE '%" + str + "%' or idMarca LIKE '%" + str + "%' or Descripcion LIKE '%" + str + "%' or Precio LIKE '%";
+            DataTable Tabla = new DataTable();
 
-
-
-            SqlCommand cmd = new SqlCommand(query, conexion);
-            //cmd.Parameters.AddWithValue("@buscar",str);
-
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-
-            using (dataAdapter)
+            try
             {
-                dataAdapter.Fill(dataGridView1);
+                cmd.Connection = this.OpenConnection();
+                cmd.CommandText = query;
+                cmd.CommandType = CommandType.Text;
+                this.reader= cmd.ExecuteReader();
+                Tabla.Load(this.reader);
             }
-
-            conexion.Close();
-
-            return dataGridView1;
-
+            catch (Exception e)
+            {
+                throw new Exception("Error al buscar productos", e);
+            }
+            finally
+            {
+                this.reader.Close();
+                CloseConnection();
+                cmd.Dispose();
+            }
+            return Tabla;
         }
-
     }
 }
 
