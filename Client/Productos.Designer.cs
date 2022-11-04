@@ -338,7 +338,7 @@
             this.agregarNuevasCategoriasToolStripMenuItem.Name = "agregarNuevasCategoriasToolStripMenuItem";
             this.agregarNuevasCategoriasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.agregarNuevasCategoriasToolStripMenuItem.Text = "Nueva Categoria";
-            this.agregarNuevasCategoriasToolStripMenuItem.Click += new System.EventHandler(this.nuevoProductoToolStripMenuItem_Click);
+            this.agregarNuevasCategoriasToolStripMenuItem.Click += new System.EventHandler(this.nuevoCategoriaToolStripMenuItem_Click);
             // 
             // nuevaMarca
             // 

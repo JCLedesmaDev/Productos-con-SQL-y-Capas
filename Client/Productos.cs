@@ -182,10 +182,7 @@ namespace Client
             Close();
         }
 
-        private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Producto nuevo = new Producto();
-        }
+
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -199,6 +196,12 @@ namespace Client
         }
 
         private void nuevaMarca_Click(object sender, EventArgs e)
+        {
+            AgregarCategoriaMarca = new AgregarCategoriaMarca();
+            AgregarCategoriaMarca.Show();
+        }
+
+        private void nuevoCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarCategoriaMarca = new AgregarCategoriaMarca();
             AgregarCategoriaMarca.Show();

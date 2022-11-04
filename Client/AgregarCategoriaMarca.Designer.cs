@@ -32,8 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -84,6 +84,13 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Agregar categoria";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(23, 104);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(131, 22);
+            this.textBox2.TabIndex = 8;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -93,13 +100,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Agregar marca";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(23, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(131, 22);
-            this.textBox2.TabIndex = 8;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(161, 299);
@@ -108,6 +108,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Volver";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AgregarCategoriaMarca
             // 
