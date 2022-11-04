@@ -78,10 +78,25 @@ AS
 SELECT * FROM TablaCategorias ORDER BY Descripcion ASC
 GO 
 
---- Listado Categorias 
+-----AGREGAR CATEGORIA
+CREATE PROC SpAgregarCategoria
+@descripcion VARCHAR (100)
+AS
+INSERT INTO TablaCategorias values (@descripcion)
+GO
+
+
+--- Listado Marcas 
 CREATE PROC SpListarMarcas
 AS
 SELECT * FROM TablaMarcas ORDER BY Descripcion ASC
+GO
+
+-----AGREGAR MARCAS
+CREATE PROC SpAgregarMarcas
+@descripcion VARCHAR (100)
+AS
+INSERT INTO TablaMarcas values (@descripcion)
 GO
 
 ----- LISTAR PRODUCTOS

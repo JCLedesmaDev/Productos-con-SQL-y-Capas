@@ -13,6 +13,7 @@ namespace Client
 {
     public partial class Productos : Form
     {
+        AgregarCategoriaMarca AgregarCategoriaMarca;
         public Productos()
         {
             InitializeComponent();
@@ -167,7 +168,7 @@ namespace Client
             }
             else
             {
-                this.ListarProductos();
+                ListarProductos();
             }
         }
 
@@ -188,13 +189,19 @@ namespace Client
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.ListarProductos();
+            ListarProductos();
             txt_buscar.Text = "";
+        }
+
+        private void nuevaMarca_Click(object sender, EventArgs e)
+        {
+            AgregarCategoriaMarca = new AgregarCategoriaMarca();
+            AgregarCategoriaMarca.Show();
         }
     }
 
