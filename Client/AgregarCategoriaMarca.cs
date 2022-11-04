@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,8 @@ namespace Client
         {
             InitializeComponent();
         }
+        MarcaController marcaController = new MarcaController();
+        CategoriaController categoriaController = new CategoriaController();
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -26,5 +29,7 @@ namespace Client
         {
 
         }
+
+
     }
 }
