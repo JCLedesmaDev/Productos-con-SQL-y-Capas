@@ -52,6 +52,7 @@
     <Compile Include="AgregarCategoriaMarca.Designer.cs">
       <DependentUpon>AgregarCategoriaMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="IForm.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

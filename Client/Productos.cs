@@ -1,4 +1,5 @@
 ﻿using BaseDatos;
+using Client.Interface;
 using Entidades.Data.Entidades;
 using Server.Controllers;
 using System;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Client
 {
-    public partial class Productos : Form
+    public partial class Productos : Form, IForm
     {
-        AgregarCategoriaMarca AgregarCategoriaMarca;
+        AgregarCategoriaMarca AgregarCategoriaMarcaView;
         public Productos()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Client
         string Operacion = "Insertar";
         string idprod;
 
-        private void ListarCategorias()
+        public void ListarCategorias()
         {
             /// Almacenamos el listado obtenido en el ComboBox
             CmbCategoria.DataSource = categoriaController.ObtenerListadoCategorias(); 
@@ -41,8 +42,8 @@ namespace Client
             // Indicamos que propiedad de los datos del listado obtenido, sera el valor por defecto al seleccionar un combo
             CmbCategoria.ValueMember = "Id"; 
         }
-        
-        private void ListarMarcas()
+
+        public void ListarMarcas()
         {
             /// Almacenamos el listado obtenido en el ComboBox
             CmbMarca.DataSource = marcaController.ObtenerListadoMarcas();
@@ -53,15 +54,15 @@ namespace Client
             // Indicamos que propiedad de los datos del listado obtenido, sera el valor por defecto al seleccionar un combo
             CmbMarca.ValueMember = "Id";
         }
-        
-        private void ListarProductos()
+
+        public void ListarProductos()
         {
             /// Almacenamos el listado obtenido en el ComboBox
             dataGridView1.DataSource = productoController.ObtenerListadoProductos();
         }
 
 
-        private void LimpiarFormulario()
+        public void LimpiarFormulario()
         {
             txtDescripcion.Clear();
             txtPrecio.Clear();
@@ -197,15 +198,16 @@ namespace Client
 
         private void nuevaMarca_Click(object sender, EventArgs e)
         {
-            AgregarCategoriaMarca = new AgregarCategoriaMarca();
-            AgregarCategoriaMarca.Show();
+            AgregarCategoriaMarcaView = new AgregarCategoriaMarca(this);
+            AgregarCategoriaMarcaView.Show();
         }
 
         private void nuevoCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AgregarCategoriaMarca = new AgregarCategoriaMarca();
-            AgregarCategoriaMarca.Show();
+            AgregarCategoriaMarcaView = new AgregarCategoriaMarca(this);
+            AgregarCategoriaMarcaView.Show();
         }
+
     }
 
 }

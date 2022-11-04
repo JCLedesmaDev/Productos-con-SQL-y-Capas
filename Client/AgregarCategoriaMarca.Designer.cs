@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblCategoria = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.agergarMarca = new System.Windows.Forms.Button();
+            this.lblMarca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.agergarMarca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,13 +50,14 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // lblCategoria
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 22);
-            this.textBox1.TabIndex = 5;
+            this.lblCategoria.Location = new System.Drawing.Point(16, 105);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(149, 22);
+            this.lblCategoria.TabIndex = 5;
             // 
             // splitContainer1
             // 
@@ -66,13 +67,13 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.lblCategoria);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.agergarMarca);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.lblMarca);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(359, 212);
             this.splitContainer1.SplitterDistance = 185;
@@ -87,12 +88,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Agregar categoria";
             // 
-            // textBox2
+            // agergarMarca
             // 
-            this.textBox2.Location = new System.Drawing.Point(23, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(131, 22);
-            this.textBox2.TabIndex = 8;
+            this.agergarMarca.Location = new System.Drawing.Point(41, 163);
+            this.agergarMarca.Name = "agergarMarca";
+            this.agergarMarca.Size = new System.Drawing.Size(94, 23);
+            this.agergarMarca.TabIndex = 9;
+            this.agergarMarca.Text = "Agregar";
+            this.agergarMarca.UseVisualStyleBackColor = true;
+            this.agergarMarca.Click += new System.EventHandler(this.agregarMarca_Click);
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.Location = new System.Drawing.Point(23, 104);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(131, 22);
+            this.lblMarca.TabIndex = 8;
             // 
             // label2
             // 
@@ -112,16 +123,6 @@
             this.button2.Text = "Volver";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // agergarMarca
-            // 
-            this.agergarMarca.Location = new System.Drawing.Point(41, 163);
-            this.agergarMarca.Name = "agergarMarca";
-            this.agergarMarca.Size = new System.Drawing.Size(94, 23);
-            this.agergarMarca.TabIndex = 9;
-            this.agergarMarca.Text = "Agregar";
-            this.agergarMarca.UseVisualStyleBackColor = true;
-            this.agergarMarca.Click += new System.EventHandler(this.agergarMarca_Click);
             // 
             // AgregarCategoriaMarca
             // 
@@ -144,10 +145,10 @@
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox lblCategoria;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lblMarca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button agergarMarca;
