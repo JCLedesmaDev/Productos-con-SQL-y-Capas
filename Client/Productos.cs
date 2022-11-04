@@ -5,6 +5,7 @@ using Server.Controllers;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
@@ -14,6 +15,7 @@ namespace Client
 {
     public partial class Productos : Form, IForm
     {
+        
         AgregarCategoriaMarca AgregarCategoriaMarcaView;
         public Productos()
         {
@@ -22,8 +24,10 @@ namespace Client
             ListarCategorias();
             ListarMarcas();
             ListarProductos();
+            
         }
 
+      
         ProductoController productoController = new ProductoController();
         MarcaController marcaController = new MarcaController();
         CategoriaController categoriaController = new CategoriaController();
@@ -208,6 +212,10 @@ namespace Client
             AgregarCategoriaMarcaView.Show();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
