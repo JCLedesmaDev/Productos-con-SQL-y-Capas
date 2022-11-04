@@ -35,6 +35,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.agergarMarca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -43,7 +44,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(161, 259);
+            this.button1.Location = new System.Drawing.Point(51, 152);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 34);
             this.button1.TabIndex = 1;
@@ -66,9 +67,11 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.agergarMarca);
             this.splitContainer1.Panel2.Controls.Add(this.textBox2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(359, 212);
@@ -110,6 +113,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // agergarMarca
+            // 
+            this.agergarMarca.Location = new System.Drawing.Point(41, 163);
+            this.agergarMarca.Name = "agergarMarca";
+            this.agergarMarca.Size = new System.Drawing.Size(94, 23);
+            this.agergarMarca.TabIndex = 9;
+            this.agergarMarca.Text = "Agregar";
+            this.agergarMarca.UseVisualStyleBackColor = true;
+            this.agergarMarca.Click += new System.EventHandler(this.agergarMarca_Click);
+            // 
             // AgregarCategoriaMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -117,7 +130,6 @@
             this.ClientSize = new System.Drawing.Size(400, 350);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.button1);
             this.Name = "AgregarCategoriaMarca";
             this.Text = "AgregarCategoriaMarca";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -138,5 +150,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button agergarMarca;
     }
 }

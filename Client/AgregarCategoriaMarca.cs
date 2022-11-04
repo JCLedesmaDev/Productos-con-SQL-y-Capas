@@ -21,5 +21,10 @@ namespace Client
         {
             Close();
         }
+
+        private void agergarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
