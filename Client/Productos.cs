@@ -181,9 +181,9 @@ namespace Client
             Close();
         }
 
-        private void nuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nuevoCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Producto nuevo = new Producto();
+            
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

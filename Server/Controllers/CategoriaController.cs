@@ -1,4 +1,5 @@
 ﻿using BaseDatos.Instrucciones;
+using Entidades.Data.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,5 +18,11 @@ namespace Server.Controllers
         {
             return instCategoria.ListarCategorias();
         }
+
+        public string InsertarCategoria(Categoria categoria)
+        {
+            return instCategoria.InsertarCategoria(categoria);
+        }
     }
+
 }

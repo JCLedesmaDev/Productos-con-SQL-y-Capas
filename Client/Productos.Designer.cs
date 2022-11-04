@@ -162,7 +162,7 @@
             // btnVistaBD
             // 
             this.btnVistaBD.Location = new System.Drawing.Point(0, 0);
-            this.btnVistaBD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVistaBD.Margin = new System.Windows.Forms.Padding(2);
             this.btnVistaBD.Name = "btnVistaBD";
             this.btnVistaBD.Size = new System.Drawing.Size(56, 19);
             this.btnVistaBD.TabIndex = 22;
@@ -211,7 +211,7 @@
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(570, 93);
             this.panel1.TabIndex = 23;
@@ -261,9 +261,9 @@
             this.groupBox1.Controls.Add(this.boton_buscarGeneral);
             this.groupBox1.Controls.Add(this.txt_buscar);
             this.groupBox1.Location = new System.Drawing.Point(598, 259);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(380, 179);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
@@ -272,7 +272,7 @@
             // limpiarBusqueda
             // 
             this.limpiarBusqueda.Location = new System.Drawing.Point(22, 80);
-            this.limpiarBusqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.limpiarBusqueda.Margin = new System.Windows.Forms.Padding(2);
             this.limpiarBusqueda.Name = "limpiarBusqueda";
             this.limpiarBusqueda.Size = new System.Drawing.Size(338, 34);
             this.limpiarBusqueda.TabIndex = 5;
@@ -283,7 +283,7 @@
             // boton_buscarGeneral
             // 
             this.boton_buscarGeneral.Location = new System.Drawing.Point(23, 125);
-            this.boton_buscarGeneral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boton_buscarGeneral.Margin = new System.Windows.Forms.Padding(2);
             this.boton_buscarGeneral.Name = "boton_buscarGeneral";
             this.boton_buscarGeneral.Size = new System.Drawing.Size(338, 34);
             this.boton_buscarGeneral.TabIndex = 4;
@@ -294,7 +294,7 @@
             // txt_buscar
             // 
             this.txt_buscar.Location = new System.Drawing.Point(23, 47);
-            this.txt_buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(2);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(338, 20);
             this.txt_buscar.TabIndex = 0;
@@ -325,7 +325,7 @@
             this.agregarNuevasCategoriasToolStripMenuItem.Name = "agregarNuevasCategoriasToolStripMenuItem";
             this.agregarNuevasCategoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarNuevasCategoriasToolStripMenuItem.Text = "Nueva Categoria";
-            this.agregarNuevasCategoriasToolStripMenuItem.Click += new System.EventHandler(this.nuevoProductoToolStripMenuItem_Click);
+            this.agregarNuevasCategoriasToolStripMenuItem.Click += new System.EventHandler(this.nuevoCategoriaToolStripMenuItem_Click);
             // 
             // cacaToolStripMenuItem
             // 

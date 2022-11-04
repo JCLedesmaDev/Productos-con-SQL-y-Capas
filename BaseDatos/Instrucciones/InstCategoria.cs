@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Data.Entidades;
+using System;
 using System.Data;
 
 namespace BaseDatos.Instrucciones
@@ -33,6 +34,35 @@ namespace BaseDatos.Instrucciones
                 this.CloseConnection(); // Cerramos la conexion a la BD
             }
         }
+
+        public string InsertarCategoria(Categoria categoria )
+        {
+            try
+            {
+                this.cmd.Connection = this.OpenConnection(); // Abrimos conexion
+                
+                this.cmd.CommandText = "SpAgregarCategoria"; /// Nombramos el procedimiento creado en el SqlServer
+                
+                this.cmd.CommandType = CommandType.StoredProcedure; // Indicamos que estamos utilizando procedimientos almacenados (Por lo de arriba) 
+
+                
+                this.cmd.Parameters.AddWithValue("@descripcion", categoria._Descripcion);
+               
+                this.cmd.ExecuteNonQuery();
+                   
+                return "Se inserto correctamente";
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrio un error a la hora de insertar una categoria.", e);
+            }
+            finally
+            {
+                this.cmd.Parameters.Clear();
+                this.CloseConnection(); // Cerramos la conexion a la BD
+            }
+        }
+
 
     }
 }
